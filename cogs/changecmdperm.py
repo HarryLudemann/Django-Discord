@@ -22,7 +22,7 @@ class Basic(commands.Cog):
     @commands.command(name='test', help='Stop Bot', pass_context = True)
     @commands.check(check_test_permission)
     async def test(self, ctx):
-        identifier = functions.GetConfigValue('identifier', ctx.guild.id)
+        identifier = functions.GetConfigValue('identifier', str(ctx.guild.id))
         await ctx.send(identifier)
 
 
