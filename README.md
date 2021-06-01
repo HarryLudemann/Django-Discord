@@ -1,7 +1,7 @@
 # Django-Discord Private Repository
 Heroku: hazzahsbot
 
-## **Features:**
+## **Bot Features:**
 1.  **Basic**
   	* Ping - Ping Bot
 2.  **Fun**
