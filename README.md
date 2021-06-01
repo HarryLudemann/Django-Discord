@@ -1,4 +1,4 @@
-# Discord-Bot Private Repository
+# Django-Discord Private Repository
 Heroku: hazzahsbot
 
 ## **Features:**
