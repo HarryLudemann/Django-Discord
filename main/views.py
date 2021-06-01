@@ -19,7 +19,7 @@ def changeprefix(response):
             newprefix=form.cleaned_data["Prefix"]
             functions.SetConfigValue('identifier', newprefix, guildid)
             messages.success(response, 'Prefix Changed')
-            print(functions.GetConfigValue('identifier'))
+            print(functions.GetConfigValue('identifier', guildid))
             return redirect('/')
         else:  
             form = ChangePrefix()
