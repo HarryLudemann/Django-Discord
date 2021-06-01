@@ -15,8 +15,8 @@ def changeprefix(response):
     if response.method == "POST":
         form = ChangePrefix(response.POST)
         if form.is_valid():
-            guildid=form.cleaned_data["guildid"]
-            newprefix=form.cleaned_data["prefix"]
+            guildid=form.cleaned_data["GuildID"]
+            newprefix=form.cleaned_data["Prefix"]
             functions.SetConfigValue('identifier', newprefix, guildid)
             messages.success(response, 'Prefix Changed')
             return redirect('/')
