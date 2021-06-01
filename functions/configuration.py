@@ -2,7 +2,7 @@
 from configparser import ConfigParser
 
 # Create Config File
-def CreateConfigFile(GuildID):
+def CreateConfigFile(GuildID, UserID):
     #Get the configparser object
     config_object = ConfigParser()
 
@@ -11,6 +11,7 @@ def CreateConfigFile(GuildID):
 
     # add a new section and some values
     config_object.add_section(GuildID)
+    config_object.set(GuildID, 'userid', UserID)
     config_object.set(GuildID, 'identifier', '$')
     config_object.set(GuildID, 'fun-inspire', '@everyone')
     config_object.set(GuildID, 'fun-comeback', '@everyone')
