@@ -32,8 +32,5 @@ def changeprivileges(response):
             form = ChangePrivileges()
             return render(response, "main/changeprefix.html", {'form':form})
     else:
-        if (obj.filter(userid=response.user.id).exists()):
-            form = ChangePrivileges()
-        else:
-            form = ChangePrivileges()
+        form = ChangePrivileges()
     return render(response, "main/changeprefix.html", {'form':form})
