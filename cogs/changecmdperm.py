@@ -22,14 +22,8 @@ class Basic(commands.Cog):
     @commands.command(name='test', help='Stop Bot', pass_context = True)
     @commands.check(check_test_permission)
     async def test(self, ctx):
-        await ctx.send(f"y or n")
-        msg = await self.client.wait_for("message", timeout=60, check=lambda message: message.author == ctx.author and message.channel == ctx.channel)
-        if (msg.text == "y"):
-            await ctx.send("y pressed")
-        elif (msg.text == "n"):
-            await ctx.send("n pressed")
-        else:
-            await ctx.send('Only n or y')
+        identifier = functions.GetConfigValue('identifier', ctx.guild.id)
+        await ctx.send(identifier)
 
 
 def setup(client):

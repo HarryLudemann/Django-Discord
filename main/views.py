@@ -23,7 +23,7 @@ def changeprefix(response):
             return redirect('/')
         else:  
             form = ChangePrefix()
-            return render(response, "main/addjob.html", {'form':form})
+            return render(response, "main/changeprefix.html", {'form':form})
     else:
         form = ChangePrefix()
     return render(response, "main/changeprefix.html", {'form':form})
