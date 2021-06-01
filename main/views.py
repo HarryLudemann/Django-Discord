@@ -5,7 +5,7 @@ from django.contrib import messages #import messages
 from register.models import Themes
 from django.contrib.auth.decorators import login_required
 from .forms import ChangePrefix
-from . import functions
+import functions
 
 
 def home(response):
