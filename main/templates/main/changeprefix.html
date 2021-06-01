@@ -4,9 +4,12 @@
 
 {% load crispy_forms_tags %}
 {% block content %} 
-    <h3 class-"m-5"> Change Prefix </h3>
     <div class="m-5">
-        {% csrf_token %}
-        {{form|crispy}}
+        <h3> Change Prefix </h3>
+        <form method="POST">
+            {% csrf_token %}
+            {{form|crispy}}
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
     </div>
 {% endblock %}
