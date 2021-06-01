@@ -4,16 +4,17 @@ from django.shortcuts import render, redirect
 from django.contrib import messages #import messages
 from register.models import Themes
 from django.contrib.auth.decorators import login_required
-from .forms import ChangePrefix
+from .forms import ChangePrivileges
 import functions
 
 
 def home(response):
     return render(response, "main/home.html", {})
 
-def changeprefix(response):
+@login_required
+def changeprivileges(response):
     if response.method == "POST":
-        form = ChangePrefix(response.POST)
+        form = ChangePrivileges(response.POST)
         if form.is_valid():
             guildid=form.cleaned_data["GuildID"]
             newprefix=form.cleaned_data["Prefix"]
@@ -22,8 +23,8 @@ def changeprefix(response):
             print(functions.GetConfigValue('identifier', guildid))
             return redirect('/')
         else:  
-            form = ChangePrefix()
+            form = ChangePrivileges()
             return render(response, "main/changeprefix.html", {'form':form})
     else:
-        form = ChangePrefix()
+        form = ChangePrivileges()
     return render(response, "main/changeprefix.html", {'form':form})
