@@ -12,17 +12,18 @@ def CreateConfigFile(GuildID):
 
 # Get Saved Config Value
 def GetConfigValue(Value, GuildID):
-    item = Privileges.objects.get(guildid=GuildID)
-    if Value == 'identifier': return item.identifier
-    elif Value == 'fun-inspire': return item.funinspire
-    elif Value == 'fun-comeback': return item.funcomeback
-    elif Value == 'fun-cat': return item.funcat
-    elif Value == 'fun-dog': return item.fundog
-    elif Value == 'fun-fox': return item.funfox
-    elif Value == 'basic-ping': return item.basicping
-    elif Value == 'admin-quit': return item.adminquit
-    elif Value == 'adminchangeprefix': return item.adminchangeprefix
-    elif Value == 'admin-test': return item.admintest
+    obj = Privileges.objects.filter(guildid=GuildID)
+    for item in obj:
+        if Value == 'identifier': return item.identifier
+        elif Value == 'fun-inspire': return item.funinspire
+        elif Value == 'fun-comeback': return item.funcomeback
+        elif Value == 'fun-cat': return item.funcat
+        elif Value == 'fun-dog': return item.fundog
+        elif Value == 'fun-fox': return item.funfox
+        elif Value == 'basic-ping': return item.basicping
+        elif Value == 'admin-quit': return item.adminquit
+        elif Value == 'adminchangeprefix': return item.adminchangeprefix
+        elif Value == 'admin-test': return item.admintest
 
 # Set Config Value to file
 def SetConfigValue(Value, NewValue, GuildID):
