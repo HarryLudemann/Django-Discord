@@ -13,3 +13,4 @@ class ChangePrivileges(forms.Form):
     adminchangeprefix = forms.CharField(max_length=200, required = False, label="Change Prefix")
     admintest = forms.CharField(max_length=200, required = False, label="Test")
    
+ 
