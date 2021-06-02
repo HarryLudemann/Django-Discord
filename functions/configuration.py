@@ -15,11 +15,11 @@ def CreateConfigFile(GuildID):
 
 # Get Saved Config Value
 def GetConfigValue(Value, GuildID):
-    if (Privileges.objects.get(guildid=GuildID).exists()):
+    obj = Privileges.objects.all()
+    if (obj.filter(guildid=GuildID).exists()):
         pass
     else:
         CreateConfigFile(GuildID)
-    obj = Privileges.objects.all()
     item = Privileges.objects.get(guildid=GuildID)
     if Value == 'identifier': return item.identifier
     elif Value == 'fun-inspire': return item.funinspire
