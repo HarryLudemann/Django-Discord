@@ -28,6 +28,13 @@ def exchange_code(code):
     response = requests.post("https://discord.com/api/oauth2/token", data=data, headers=headers)
     print(response)
     credentials = response.json()
+    access_token = credentials['access_token']
+    response = requests.get("https://discord.com/api/v6/users/@me", headers={'Authorization':'Bearer %s' %access_token})
+    print(response)
+    user = response.json()
+    return user
+
+
 
 def home(response):
     return render(response, "main/home.html", {})
@@ -38,7 +45,7 @@ def discordlogin(response):
 def discordloginredirect(response):
     code = response.GET.get('code')
     print(code)
-    exchange_code(code)
+    user = exchange_code(code)
     return redirect("/")
 
 @login_required
