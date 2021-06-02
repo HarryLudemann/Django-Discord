@@ -1,4 +1,6 @@
 # import database
+import django
+django.setup()
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
 from main.models import Privileges
