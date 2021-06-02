@@ -7,7 +7,7 @@ from discord.utils import get
 import functions
 
 def get_prefix(client, message):
-  return functions.GetConfigValue('identifier', str(message.guild.id))
+  return str(functions.GetConfigValue('identifier', str(message.guild.id)))
 
 # Bots Description
 description = "Hazzahs Bot"
