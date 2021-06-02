@@ -39,7 +39,7 @@ def exchange_code(code):
 
 
 def home(response):
-    return render(response, "main/home.html", {'user':user})
+    return render(response, "main/home.html", {})
 
 def discordlogin(response):
     return redirect(discord_login)
