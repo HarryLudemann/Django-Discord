@@ -24,4 +24,4 @@ class DiscordUser(models.Model):
     flags = models.IntegerField()
     locale = models.CharField(max_length=100)
     mfa_enabled = models.BooleanField()
-    last_login = models.BooleanField()
+    last_login = models.BooleanField(null=True)
