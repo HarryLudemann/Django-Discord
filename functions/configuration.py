@@ -1,3 +1,6 @@
+# import database
+import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
 from main.models import Privileges
 
 # Create Config File
