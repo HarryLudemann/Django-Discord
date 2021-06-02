@@ -18,15 +18,13 @@ def changeprivileges(response):
     if response.method == "POST":
         form = ChangePrivileges(response.POST)
         if form.is_valid():
-            guildid=form.cleaned_data["guildid"]
             #check if setting already excist and delete
             if (obj.filter(userid=response.user.id).exists()):
                 obj.filter(userid=response.user.id).delete()
             # save
-            obj = Privileges(userid=response.user.id, identifier=form.cleaned_data["identifier"], funinspire=form.cleaned_data["funinspire"], funcomeback=form.cleaned_data["funcomeback"], funcat=form.cleaned_data["funcat"], fundog=form.cleaned_data["fundog"], funfox=form.cleaned_data["funfox"], basicping=form.cleaned_data["basicping"], adminquit=form.cleaned_data["adminquit"], adminchangeprefix=form.cleaned_data["adminchangeprefix"], admintest=form.cleaned_data["admintest"])
+            obj = Privileges(guildid=form.cleaned_data["guildid"], userid=response.user.id, identifier=form.cleaned_data["identifier"], funinspire=form.cleaned_data["funinspire"], funcomeback=form.cleaned_data["funcomeback"], funcat=form.cleaned_data["funcat"], fundog=form.cleaned_data["fundog"], funfox=form.cleaned_data["funfox"], basicping=form.cleaned_data["basicping"], adminquit=form.cleaned_data["adminquit"], adminchangeprefix=form.cleaned_data["adminchangeprefix"], admintest=form.cleaned_data["admintest"])
             obj.save()
             messages.success(response, 'Prefix Changed')
-            print(functions.GetConfigValue('identifier', guildid))
             return redirect('/')
         else:  
             form = ChangePrivileges()

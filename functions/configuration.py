@@ -1,52 +1,54 @@
-# This file Controls Config Functions (Create, Get, Set)
-from configparser import ConfigParser
+from ..main.models import Privileges
 
 # Create Config File
-def CreateConfigFile(GuildID, UserID):
-    #Get the configparser object
-    config_object = ConfigParser()
-
-    # parse existing file
-    config_object.read('config.ini')
-
-    # add a new section and some values
-    config_object.add_section(GuildID)
-    config_object.set(GuildID, 'userid', UserID)
-    config_object.set(GuildID, 'identifier', '$')
-    config_object.set(GuildID, 'fun-inspire', '@everyone')
-    config_object.set(GuildID, 'fun-comeback', '@everyone')
-    config_object.set(GuildID, 'fun-cat', '@everyone')
-    config_object.set(GuildID, 'fun-dog', '@everyone')
-    config_object.set(GuildID, 'fun-fox', '@everyone')
-    config_object.set(GuildID, 'basic-ping', '@everyone')
-    config_object.set(GuildID, 'admin-quit', 'Admin')
-    config_object.set(GuildID, 'admin-changeprefix', 'Admin')
-    config_object.set(GuildID, 'admin-test', 'Admin')
-
-    #Write the above sections to config.ini file
-    with open('config.ini', 'w') as conf:
-        config_object.write(conf)
+def CreateConfigFile(GuildID):
+    obj = Privileges.objects.all()
+    if (Privileges.objects(guildid=GuildID).exists()):
+        obj.filter(guildid=GuildID).delete()
+    obj = Privileges(guildid=GuildID, userid=None, identifier=None, funinspire=None, funcomeback=None, funcat=None, fundog=None, funfox=None, basicping=None, adminquit=None, adminchangeprefix=None, admintest=None)
+    obj.save()
 
 # Get Saved Config Value
 def GetConfigValue(Value, GuildID):
-    #Read config.ini file
-    config_object = ConfigParser()
-    config_object.read("config.ini")
-    #Create Object Of ServerSettings
-    ServerSettings = config_object[GuildID]
-    return ServerSettings[Value]
+    obj = Privileges.objects.all()
+    if (obj.objects(guildid=GuildID).exists()):
+        pass
+    else:
+        CreateConfigFile(GuildID)
+    item = Privileges.objects.get(guildid=GuildID)
+    if Value == 'identifier': return item.identifier
+    elif Value == 'fun-inspire': return item.funinspire
+    elif Value == 'fun-comeback': return item.funcomeback
+    elif Value == 'fun-cat': return item.funcat
+    elif Value == 'fun-dog': return item.fundog
+    elif Value == 'fun-fox': return item.funfox
+    elif Value == 'basic-ping': return item.basicping
+    elif Value == 'admin-quit': return item.adminquit
+    elif Value == 'adminchangeprefix': return item.adminchangeprefix
+    elif Value == 'admin-test': return item.admintest
 
 # Set Config Value to file
 def SetConfigValue(Value, NewValue, GuildID):
-    config_object = ConfigParser()
-    config_object.read("config.ini")
-    #Create Object Of ServerSettings
-    ServerSettings = config_object[GuildID]
-    #Update the value
-    ServerSettings[Value] = NewValue
-    #Write changes back to file
-    with open('config.ini', 'w') as conf:
-        config_object.write(conf)
+    obj = Privileges.objects.all()
+    # check item excists in table
+    if (obj.objects(guildid=GuildID).exists()):
+        pass
+    else:
+        CreateConfigFile(GuildID)
+    #set value
+    item = Privileges.objects.get(guildid=GuildID)
+    if Value == 'identifier': item.identifier = NewValue
+    elif Value == 'fun-inspire': item.funinspire = NewValue
+    elif Value == 'fun-comeback': item.funcomeback = NewValue
+    elif Value == 'fun-cat': item.funcat = NewValue
+    elif Value == 'fun-dog': item.fundog = NewValue
+    elif Value == 'fun-fox': item.funfox = NewValue
+    elif Value == 'basic-ping': item.basicping = NewValue
+    elif Value == 'admin-quit': item.adminquit = NewValue
+    elif Value == 'adminchangeprefix': item.adminchangeprefix = NewValue
+    elif Value == 'admin-test': item.admintest = NewValue
+    item.save()
+    
 
 if (__name__ == "__main__"):
     CreateConfigFile('677326100686438430') # GuildID For HAX00R
