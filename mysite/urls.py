@@ -23,13 +23,13 @@ urlpatterns = [
     path('register/', v.register, name="register"),
     path('editprofile/', v.editprofile, name="editprofile"),
     path('admin/', admin.site.urls),
+    path('', include("django.contrib.auth.urls")),
     # path('password/', auth_views.PasswordChangeView.as_view(template_name="register/change-password.html")),
     # path('password/done',v.passworddone, name="passworddone"),
-    # path('', include("django.contrib.auth.urls")),
     # path('accounts/', include('django.contrib.auth.urls')),
     # path("password_reset/", v.password_reset_request, name="password_reset"),
     # path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='register/password_reset_done.html'), name='password_reset_done'),
     # path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="register/password_reset_confirm.html"), name='password_reset_confirm'),
     # path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='register/password_reset_complete.html'), name='password_reset_complete'), 
-    # path('', include("django.contrib.auth.urls")),
+   
 ]
