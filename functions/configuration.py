@@ -16,7 +16,7 @@ def CreateConfigFile(GuildID):
 # Get Saved Config Value
 def GetConfigValue(Value, GuildID):
     obj = Privileges.objects.all()
-    if (obj.objects(guildid=GuildID).exists()):
+    if (obj.filter(guildid=GuildID).exists()):
         pass
     else:
         CreateConfigFile(GuildID)
@@ -36,7 +36,7 @@ def GetConfigValue(Value, GuildID):
 def SetConfigValue(Value, NewValue, GuildID):
     obj = Privileges.objects.all()
     # check item excists in table
-    if (obj.objects(guildid=GuildID).exists()):
+    if (obj.filter(guildid=GuildID).exists()):
         pass
     else:
         CreateConfigFile(GuildID)
