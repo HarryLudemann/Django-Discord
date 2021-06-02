@@ -27,13 +27,6 @@ def GetConfigValue(Value, GuildID):
 
 # Set Config Value to file
 def SetConfigValue(Value, NewValue, GuildID):
-    obj = Privileges.objects.all()
-    # check item excists in table
-    if (obj.filter(guildid=GuildID).exists()):
-        pass
-    else:
-        CreateConfigFile(GuildID)
-    #set value
     obj = Privileges.objects.filter(guildid=GuildID)
     for item in obj:
         if Value == 'identifier': item.identifier = NewValue
