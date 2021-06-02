@@ -1,4 +1,4 @@
-from .main.models import Privileges
+from main.models import Privileges
 
 # Create Config File
 def CreateConfigFile(GuildID):
