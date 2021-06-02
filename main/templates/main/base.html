@@ -116,7 +116,9 @@
             </div>
         </nav>
         {% include 'main/messages.html' %}
-        {{ user.is_authenticated }}
+        {% if user.is_authenticated == False %}
+         Is_authenticated False
+        {% endif %}
         {% block content %}
         {% endblock %}
         
