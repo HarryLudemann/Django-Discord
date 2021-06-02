@@ -7,8 +7,27 @@ from main.models import Privileges
 from django.contrib.auth.decorators import login_required
 from .forms import ChangePrivileges
 import functions
+import requests
+import os
 
 discord_login = 'https://discord.com/api/oauth2/authorize?client_id=833177090350252072&redirect_uri=https%3A%2F%2Fhazzahsbot.herokuapp.com%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify'
+discord_addbot = 'https://discord.com/api/oauth2/authorize?client_id=833177090350252072&permissions=8&scope=bot'
+
+def exchange_code(code):
+    data = {
+        'client_id' : os.getenv("CLIENT_ID"),
+        'client_secret' : os.getenv("CLIENT_SECRET"),
+        'grant_type' : 'authorization_code',
+        'code' : code,
+        'redirect_uri' : 'https://hazzahsbot.herokuapp.com/oauth2/login/redirect',
+        'scope': 'identify'
+    }
+    headers = {
+        'Content_Type': 'application/x-www-form-urlencoded'
+    }
+    response = requests.post("https://discord.com/api/oauth2/token", data=data, headers=headers)
+    print(response)
+    credentials = response.json()
 
 def home(response):
     return render(response, "main/home.html", {})
@@ -17,6 +36,9 @@ def discordlogin(response):
     return redirect(discord_login)
 
 def discordloginredirect(response):
+    code = response.GET.get('code')
+    print(code)
+    exchange_code(code)
     return redirect("/")
 
 @login_required
