@@ -39,10 +39,6 @@ def exchange_code(code):
 
 
 def home(response):
-    code = response.GET.get('code')
-    print(code)
-    user = exchange_code(code)
-    user = authenticate(response, user=user)
     return render(response, "main/home.html", {'user':user})
 
 def discordlogin(response):
