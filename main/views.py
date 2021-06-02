@@ -50,6 +50,7 @@ def discordloginredirect(response):
     user = exchange_code(code)
     discord_user = authenticate(response, user=user)
     #discord_user = list(discord_user).pop()
+    discord_user = discord_user.first()
     print(discord_user)
     login(response,discord_user)
     return redirect("/")
