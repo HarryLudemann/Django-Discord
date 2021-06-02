@@ -1,8 +1,8 @@
 # import database
-import django
-django.setup()
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
+import django
+os.environ["DJANGO_SETTINGS_MODULE"] = 'mysite.settings'
+django.setup()
 from main.models import Privileges
 
 # Create Config File
