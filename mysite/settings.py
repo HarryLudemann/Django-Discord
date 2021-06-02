@@ -29,6 +29,9 @@ SECRET_KEY = '-pklp2vyme_mj99dvt#gzc!j+v5_$$7=uj!s&j@ug^_qix0wb'
 DEBUG = False
 
 ALLOWED_HOSTS = ['hazzahsbot.herokuapp.com']
+
+AUTHENTICATION_BACKENDS = ['main.auth.DiscordAuthenticationBackend']
+
 DEBUG_PROPAGATE_EXCEPTIONS = True
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
