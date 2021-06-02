@@ -14,6 +14,6 @@ class DiscordAuthenticationBackend(BaseBackend):
 
     def get_user(self, user_id):
         try:
-            return DiscordUser.objects.get(pk=user_id)
+            return DiscordUser.objects.get(pk=id) #user_id
         except DiscordUser.DoesNotExist:
             return None
