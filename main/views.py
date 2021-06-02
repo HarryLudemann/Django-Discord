@@ -50,7 +50,7 @@ def discordloginredirect(response):
     user = exchange_code(code)
     discord_user = authenticate(response, user=user)
     #discord_user = list(discord_user).pop()
-    login(response, list(discord_user))
+    login(response, list(discord_user).pop())
     return redirect("/")
 
 @login_required(login_url='/oauth2/login')
