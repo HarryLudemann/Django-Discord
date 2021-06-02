@@ -8,18 +8,18 @@ from main.models import Privileges
 # Create Config File
 def CreateConfigFile(GuildID):
     obj = Privileges.objects.all()
-    if (Privileges.objects(guildid=GuildID).exists()):
+    if (Privileges.objects.get(guildid=GuildID).exists()):
         obj.filter(guildid=GuildID).delete()
     obj = Privileges(guildid=GuildID, userid=None, identifier=None, funinspire=None, funcomeback=None, funcat=None, fundog=None, funfox=None, basicping=None, adminquit=None, adminchangeprefix=None, admintest=None)
     obj.save()
 
 # Get Saved Config Value
 def GetConfigValue(Value, GuildID):
-    obj = Privileges.objects.all()
-    if (obj.filter(guildid=GuildID).exists()):
+    if (Privileges.objects.get(guildid=GuildID).exists()):
         pass
     else:
         CreateConfigFile(GuildID)
+    obj = Privileges.objects.all()
     item = Privileges.objects.get(guildid=GuildID)
     if Value == 'identifier': return item.identifier
     elif Value == 'fun-inspire': return item.funinspire
