@@ -143,6 +143,8 @@ LOGIN_URL = "/login"
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
+os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 import dj_database_url 
