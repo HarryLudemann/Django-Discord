@@ -116,7 +116,7 @@
             </div>
         </nav>
         {% include 'main/messages.html' %}
-
+        {{ user.is_authenticated }}
         {% block content %}
         {% endblock %}
         
