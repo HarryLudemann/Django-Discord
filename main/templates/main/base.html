@@ -73,7 +73,7 @@
                     </li>
                 
                 <!-- Profile links -->
-                {% if user.is_authenticated %}
+                {% if request.user.is_authenticated %}
                     <!-- Dropdown -->
                     <li class="nav-item dropdown">
                         <a
@@ -84,7 +84,7 @@
                         data-mdb-toggle="dropdown"
                         aria-expanded="false"
                         >
-                        {{user.username|upper}}
+                        {{request.user.username|upper}}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li>
