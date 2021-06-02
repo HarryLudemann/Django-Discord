@@ -14,7 +14,7 @@ class Privileges(models.Model):
     adminchangeprefix = models.CharField(max_length=50)
     admintest = models.CharField(max_length=50)
 
-class DiscordUser(models.model):
+class DiscordUser(models.Model):
     id = models.BigIntegerField(primary_key=True)
     discord_tag = models.CharField(max_length=100)
     avatar = models.CharField(max_length=100)
