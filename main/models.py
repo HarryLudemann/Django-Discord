@@ -1,4 +1,5 @@
 from django.db import models
+from .managers import DiscordUserOAuth2Manager
 
 class Privileges(models.Model):
     userid = models.CharField(max_length=50)
@@ -15,6 +16,7 @@ class Privileges(models.Model):
     admintest = models.CharField(max_length=50)
 
 class DiscordUser(models.Model):
+    objects = DiscordUserOAuth2Manager()
     id = models.BigIntegerField(primary_key=True)
     discord_tag = models.CharField(max_length=100)
     avatar = models.CharField(max_length=100)
