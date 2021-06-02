@@ -34,18 +34,19 @@ def SetConfigValue(Value, NewValue, GuildID):
     else:
         CreateConfigFile(GuildID)
     #set value
-    item = Privileges.objects.get(guildid=GuildID)
-    if Value == 'identifier': item.identifier = NewValue
-    elif Value == 'fun-inspire': item.funinspire = NewValue
-    elif Value == 'fun-comeback': item.funcomeback = NewValue
-    elif Value == 'fun-cat': item.funcat = NewValue
-    elif Value == 'fun-dog': item.fundog = NewValue
-    elif Value == 'fun-fox': item.funfox = NewValue
-    elif Value == 'basic-ping': item.basicping = NewValue
-    elif Value == 'admin-quit': item.adminquit = NewValue
-    elif Value == 'adminchangeprefix': item.adminchangeprefix = NewValue
-    elif Value == 'admin-test': item.admintest = NewValue
-    item.save()
+    obj = Privileges.objects.filter(guildid=GuildID)
+    for item in obj:
+        if Value == 'identifier': item.identifier = NewValue
+        elif Value == 'fun-inspire': item.funinspire = NewValue
+        elif Value == 'fun-comeback': item.funcomeback = NewValue
+        elif Value == 'fun-cat': item.funcat = NewValue
+        elif Value == 'fun-dog': item.fundog = NewValue
+        elif Value == 'fun-fox': item.funfox = NewValue
+        elif Value == 'basic-ping': item.basicping = NewValue
+        elif Value == 'admin-quit': item.adminquit = NewValue
+        elif Value == 'adminchangeprefix': item.adminchangeprefix = NewValue
+        elif Value == 'admin-test': item.admintest = NewValue
+        item.save()
     
 
 if (__name__ == "__main__"):
