@@ -8,9 +8,16 @@ from django.contrib.auth.decorators import login_required
 from .forms import ChangePrivileges
 import functions
 
+discord_login = 'https://discord.com/api/oauth2/authorize?client_id=833177090350252072&redirect_uri=https%3A%2F%2Fhazzahsbot.herokuapp.com%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify'
 
 def home(response):
     return render(response, "main/home.html", {})
+
+def discordlogin(response):
+    return redirect(discord_login)
+
+def discordloginredirect(response):
+    return redirect("/")
 
 @login_required
 def changeprivileges(response):
