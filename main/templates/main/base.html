@@ -68,6 +68,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/changeprivileges">Change Perm</a>
+                    </li>
                 
                 <!-- Profile links -->
                 {% if user.is_authenticated %}
@@ -102,7 +105,7 @@
                     </li>
             {% else %}
                 <div class="d-flex align-items-center">
-                    <a href="/login"><button type="button" class="btn btn-link px-3 me-2 text-theme">
+                    <a href="/oauth2/login"><button type="button" class="btn btn-link px-3 me-2 text-theme">
                     Login
                     </button></a>
                     <a href="/register"><button type="button" class="btn btn-primary btn-theme me-3">
