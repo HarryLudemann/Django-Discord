@@ -48,10 +48,12 @@ def discordloginredirect(response):
     code = response.GET.get('code')
     print(code)
     user = exchange_code(code)
-    authenticate(response, user=user)
+    discord_user = authenticate(response, user=user)
+    discord_user = list(discord_user).pop()
+    login(response, discord_user)
     return redirect("/")
 
-@login_required
+@login_required(login_url='/oauth2/login')
 def changeprivileges(response):
     obj = Privileges.objects.all()
     if response.method == "POST":
