@@ -1,5 +1,4 @@
 from register.models import Themes
-from main.models import Privileges
 
 # Checks theme
 def CheckDarkTheme(response):
@@ -16,7 +15,6 @@ def CheckDarkTheme(response):
 
 def add_variable_to_context(request):
     Theme = CheckDarkTheme(request)
-    Guilds = GetGuilds(request)
     return {
         'theme': Theme
     }
