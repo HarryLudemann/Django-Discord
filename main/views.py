@@ -40,7 +40,6 @@ def exchange_code(code):
 
 
 def home(response):
-    GetGuilds()
     return render(response, "main/home.html", {})
 
 def discordlogin(response):
