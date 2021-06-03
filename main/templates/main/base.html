@@ -73,7 +73,7 @@
                     </li>
                 
                 <!-- Profile links -->
-                {% if user.is_authenticated %}
+                {% if user.discord_tag != none %}
                     <!-- Dropdown -->
                     <li class="nav-item dropdown">
                         <a
@@ -116,8 +116,6 @@
             </div>
         </nav>
         {% include 'main/messages.html' %}
-        {{ user.discord_tag }}
-        {{ user.username }}
         {% block content %}
         {% endblock %}
         
