@@ -4,7 +4,6 @@ from .managers import DiscordUserOAuth2Manager
 class Privileges(models.Model):
     userid = models.CharField(max_length=50)
     guildid = models.CharField(max_length=50)
-    guildowner = models.CharField(max_length=50)
     identifier = models.CharField(max_length=50)
     funinspire = models.CharField(max_length=50)
     funcomeback = models.CharField( max_length=50)
