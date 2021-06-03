@@ -86,4 +86,4 @@ def changeprivileges(response):
 
 @login_required(login_url='/oauth2/login')
 def servers(response):
-	return render("servers.html", guild_count = guild_count, guilds = guilds, username=name)
+	return render(response, "servers.html", {})
