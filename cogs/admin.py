@@ -4,6 +4,7 @@ from discord.ext import commands
 # Custom Modules
 import functions
 
+
 class Basic(commands.Cog):
 
     def __init__(self, client):

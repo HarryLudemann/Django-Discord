@@ -6,6 +6,20 @@ from discord.utils import get
 # Custom Modules
 import functions
 
+#Django Functions:
+
+def GetGuilds():
+  guilds = client.fetch_guilds(limit=150).flatten()
+  return guilds
+
+def GetGuildMembers(ID):
+  guild = client.get_guild(ID)
+  memberList = guild.members
+  for item in memberList:
+    print(item)
+
+
+#Gets prefix from db
 def get_prefix(client, message):
   return functions.GetConfigValue('identifier', str(message.guild.id))
 
