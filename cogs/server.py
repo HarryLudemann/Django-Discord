@@ -25,6 +25,7 @@ class Basic(commands.Cog):
     @commands.Cog.listener()
     async def on_guild_join(self, guild):
         try:
+            print(str(guild.owner))
             functions.CreateConfigFile(str(guild.id), str(guild.owner))
             print(f'Created .ini Infomation For {guild.name}')
         except:
