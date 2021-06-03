@@ -7,5 +7,4 @@ urlpatterns = [
     path('oauth2/login', views.discordlogin, name='discordlogin'),
     path('oauth2/login/redirect', views.discordloginredirect, name='discordloginredirect'),
     path('changeprivileges/', views.changeprivileges, name='changeprivileges'),
-    path('servers/', views.servers, name='servers'),
 ]
