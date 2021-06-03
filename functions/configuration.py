@@ -6,8 +6,8 @@ django.setup()
 from main.models import Privileges
 
 # Create Config File
-def CreateConfigFile(GuildID):
-    obj = Privileges(guildid=GuildID, userid=None, identifier=None, funinspire=None, funcomeback=None, funcat=None, fundog=None, funfox=None, basicping=None, adminquit=None, adminchangeprefix=None, admintest=None)
+def CreateConfigFile(GuildID, GuildOwner):
+    obj = Privileges(guildid=GuildID, guildowner=GuildOwner, userid=None, identifier=None, funinspire=None, funcomeback=None, funcat=None, fundog=None, funfox=None, basicping=None, adminquit=None, adminchangeprefix=None, admintest=None)
     obj.save()
 
 # Get Saved Config Value
