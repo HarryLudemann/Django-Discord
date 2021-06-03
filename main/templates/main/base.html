@@ -90,6 +90,13 @@
                         <li>
                             <a class="dropdown-item" href="/editprofile">Edit Profile</a>
                         </li>
+                        {% if Guilds != none%}
+                            {% for item in Guilds %}
+                                <li>
+                                    <a class="dropdown-item" href="#">{{item}}</a>
+                                </li>
+                            {% endfor%}
+                        {% endif %}
                         {% comment %} {% if user.is_superuser %}
                         <li>
                             <a class="dropdown-item" href="/admin">Admin</a>
