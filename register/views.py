@@ -48,11 +48,6 @@ def register(response):
 def editprofile(response):
     # user = User.objects.get(username = response.user.username)
     if response.method == "POST":
-        form = EditProfile(response.POST, instance=response.user)
-        if form.is_valid():
-            form.save()
-
-
         obj = Themes.objects.all()
         if (obj.filter(userid=response.user.id).exists()):
             obj.filter(userid=response.user.id).delete()
@@ -65,9 +60,6 @@ def editprofile(response):
         messages.success(response, 'Settings Successfully Updated')
         return redirect("/")
     else:
-        form = EditProfile(instance=response.user)
-
-
         obj = Themes.objects.all()
         if (obj.filter(userid=response.user.id).exists()):
             obj = obj.filter(userid=response.user.id)
@@ -79,7 +71,13 @@ def editprofile(response):
                 themeform = ThemeForm(initial={"theme": theme})
         else:
             themeform = ThemeForm()
-        return render(response, "register/editprofile.html", {"form": form, "themeform": themeform, 'theme':CheckDarkTheme(response)})
+        
+        obj = Themes(theme='light', userid='categories')
+        obj.save()
+        
+        obj = Themes(theme='dark', userid='categories')
+        obj.save()
+        return render(response, "register/editprofile.html", {"themeform": themeform})
 
         # "username":response.user.username, "email":response.user.email
 
