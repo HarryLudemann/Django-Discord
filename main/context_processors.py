@@ -14,18 +14,9 @@ def CheckDarkTheme(response):
     else:
         return 'light'
 
-def GetGuilds(response):
-    obj = Privileges.objects.all()
-    if (obj.filter(guildowner=response.user.discord_tag).exists()):
-        obj = obj.filter(guildid=response.user.discord_tag)
-        return obj
-    else:
-        return None
-
 def add_variable_to_context(request):
     Theme = CheckDarkTheme(request)
     Guilds = GetGuilds(request)
     return {
-        'theme': Theme,
-        'Guilds': Guilds
+        'theme': Theme
     }
