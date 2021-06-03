@@ -82,7 +82,3 @@ def changeprivileges(response):
             form = ChangePrivileges()
     return render(response, "main/changeprefix.html", {'form':form})
 
-
-@login_required(login_url='/oauth2/login')
-def servers(response):
-	return render(response, "servers.html", {})
