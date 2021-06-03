@@ -68,12 +68,12 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/changeprivileges">Change Perm</a>
-                    </li>
                 
                 <!-- Profile links -->
                 {% if user.discord_tag != none %}
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/changeprivileges">Change Perm</a>
+                    </li>
                     <!-- Dropdown -->
                     <li class="nav-item dropdown">
                         <a
@@ -84,7 +84,7 @@
                         data-mdb-toggle="dropdown"
                         aria-expanded="false"
                         >
-                        Account
+                        {{user.discord_tag}}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li>
