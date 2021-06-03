@@ -116,7 +116,8 @@
             </div>
         </nav>
         {% include 'main/messages.html' %}
-
+        {{ user.discord_tag }}
+        {{ user.username }}
         {% block content %}
         {% endblock %}
         
