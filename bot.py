@@ -7,15 +7,15 @@ from discord.utils import get
 import functions
 
 #Django Functions:
-# def GetGuilds():
-#   guilds = client.fetch_guilds(limit=150).flatten()
-#   return guilds
+def GetGuilds():
+  guilds = client.fetch_guilds(limit=150).flatten()
+  return guilds
 
-# def GetGuildMembers(ID):
-#   guild = client.get_guild(ID)
-#   memberList = guild.members
-#   for item in memberList:
-#     print(item)
+def GetGuildMembers(ID):
+  guild = client.get_guild(ID)
+  memberList = guild.members
+  for item in memberList:
+    print(item)
 
 
 #Gets prefix from db

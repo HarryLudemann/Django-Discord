@@ -10,6 +10,7 @@ import functions
 import requests
 import os
 from django.contrib.auth import authenticate, login
+from bot import GetGuilds
 
 discord_login = 'https://discord.com/api/oauth2/authorize?client_id=833177090350252072&redirect_uri=https%3A%2F%2Fhazzahsbot.herokuapp.com%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify'
 discord_addbot = 'https://discord.com/api/oauth2/authorize?client_id=833177090350252072&permissions=8&scope=bot'
@@ -57,6 +58,10 @@ def discordloginredirect(response):
 
 @login_required(login_url='/oauth2/login')
 def changeprivileges(response):
+    guildlist = GetGuilds()
+    for item in guildlist:
+        print(item)
+
     obj = Privileges.objects.all()
     if response.method == "POST":
         form = ChangePrivileges(response.POST)
