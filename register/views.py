@@ -72,11 +72,6 @@ def editprofile(response):
         else:
             themeform = ThemeForm()
         
-        obj = Themes(theme='light', userid='categories')
-        obj.save()
-        
-        obj = Themes(theme='dark', userid='categories')
-        obj.save()
         return render(response, "register/editprofile.html", {"themeform": themeform})
 
         # "username":response.user.username, "email":response.user.email
