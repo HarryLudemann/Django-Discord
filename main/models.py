@@ -18,6 +18,7 @@ class Privileges(models.Model):
 class DiscordUser(models.Model):
     objects = DiscordUserOAuth2Manager()
     id = models.BigIntegerField(primary_key=True)
+    email = models.CharField(max_length=100)
     discord_tag = models.CharField(max_length=100)
     avatar = models.CharField(max_length=100)
     public_flags = models.IntegerField()
