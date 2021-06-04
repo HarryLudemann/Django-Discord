@@ -11,7 +11,7 @@ import requests
 import os
 from django.contrib.auth import authenticate, login
 
-discord_login = 'https://discord.com/api/oauth2/authorize?client_id=833177090350252072&redirect_uri=https%3A%2F%2Fhazzahsbot.herokuapp.com%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify'
+discord_login = 'https://discord.com/api/oauth2/authorize?client_id=833177090350252072&redirect_uri=https%3A%2F%2Fhazzahsbot.herokuapp.com%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify%20guilds%20connections'
 discord_addbot = 'https://discord.com/api/oauth2/authorize?client_id=833177090350252072&permissions=8&scope=bot'
 
 def exchange_code(code):
@@ -21,7 +21,7 @@ def exchange_code(code):
         'grant_type' : 'authorization_code',
         'code' : code,
         'redirect_uri' : 'https://hazzahsbot.herokuapp.com/oauth2/login/redirect',
-        'scope': 'identify'
+        'scope': 'identify guilds connections'
     }
     headers = {
         'Content_Type': 'application/x-www-form-urlencoded'
@@ -37,10 +37,17 @@ def exchange_code(code):
     print(user)
     return user
 
+def get_guild_info():
+    print('test')
+
+
 
 
 def home(response):
     return render(response, "main/home.html", {})
+
+def getguild(response):
+    return redirect('/')
 
 def discordlogin(response):
     return redirect(discord_login)
