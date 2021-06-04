@@ -3,7 +3,7 @@ import functions
 from django.shortcuts import render, redirect
 from django.contrib import messages #import messages
 from register.models import Themes
-from main.models import Privileges
+from main.models import Privileges, Guilds
 from django.contrib.auth.decorators import login_required
 from .forms import ChangePrivileges
 import functions
@@ -31,8 +31,10 @@ def exchange_code(code):
     access_token = credentials['access_token']
     response = requests.get("https://discord.com/api/v6/users/@me", headers={'Authorization':'Bearer %s' %access_token})
     response2 = requests.get("https://discord.com/api/v6/users/@me/guilds", headers={'Authorization':'Bearer %s' %access_token})
-    print(response2.json())
-    print(response)
+    guildslist = response2.json()
+    for n in range(len(guildslist)):
+        if (str(guildslist[n]['owner']) == 'True'):
+            print(str(guildslist[n]['name']))
     user = response.json()
     print(user)
     return user
