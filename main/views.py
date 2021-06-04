@@ -21,7 +21,7 @@ def exchange_code(code):
         'grant_type' : 'authorization_code',
         'code' : code,
         'redirect_uri' : 'https://hazzahsbot.herokuapp.com/oauth2/login/redirect',
-        'scope': 'identify'
+        'scope': 'identify, guild'
     }
     headers = {
         'Content_Type': 'application/x-www-form-urlencoded'
