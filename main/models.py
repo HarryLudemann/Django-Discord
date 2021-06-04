@@ -29,3 +29,11 @@ class DiscordUser(models.Model):
 
     def is_authenticated(self, request):
         return True
+
+class Guilds(models.Model):
+    userid = models.CharField(max_length=50)
+    guildid = models.BigIntegerField()
+    name = models.CharField(max_length=150)
+    icon = models.CharField(max_length=100)
+    roles = models.TextField()
+    membercount = models.IntegerField()

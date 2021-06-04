@@ -37,17 +37,12 @@ def exchange_code(code):
     print(user)
     return user
 
-def get_guild_info():
-    print('test')
-
-
-
 
 def home(response):
     return render(response, "main/home.html", {})
 
-def getguild(response):
-    return redirect('/')
+def guildslist(response):
+    return render(response, "main/guildslist.html", {})
 
 def discordlogin(response):
     return redirect(discord_login)
