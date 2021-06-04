@@ -42,10 +42,6 @@ def get_guild_info():
 
 
 def home(response):
-    obj = Themes(userid='categories', theme='light')
-    obj.save()
-    obj = Themes(userid='categories', theme='dark')
-    obj.save()
     return render(response, "main/home.html", {})
 
 def getguild(response):
