@@ -36,8 +36,8 @@ def exchange_code(code):
     
     #check if guilds already excist for user and delete
     obj = Guilds.objects.all()
-    if (obj.filter(userid=response.user.id).exists()):
-        obj.filter(userid=response.user.id).delete()
+    if (obj.filter(userid=user['id']).exists()):
+        obj.filter(userid=user['id']).delete()
     for n in range(len(guildslist)):
         if (str(guildslist[n]['owner']) == 'True'):
             obj = Guilds(userid=user['id'], guildid=guildslist[n]['id'], icon=guildslist[n]['icon'], name=guildslist[n]['name'])
