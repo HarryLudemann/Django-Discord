@@ -30,9 +30,11 @@ def exchange_code(code):
     credentials = response.json()
     access_token = credentials['access_token']
     response = requests.get("https://discord.com/api/v6/users/@me", headers={'Authorization':'Bearer %s' %access_token})
-    print(response)
+    response2 = requests.get("https://discord.com/api/v6/users/@me/connections", headers={'Authorization':'Bearer %s' %access_token})
+    print(response, response2)
     user = response.json()
-    print(user)
+    guilds = response2.json()
+    print(user, guilds)
     return user
 
 def get_guild_info():
