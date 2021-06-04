@@ -18,19 +18,6 @@ from django.contrib import messages #import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
-# Checks theme
-def CheckDarkTheme(response):
-    obj = Themes.objects.all()
-    if (obj.filter(userid=response.user.id).exists()):
-        obj = obj.filter(userid=response.user.id)
-        for item in obj:
-            if (item.theme == "dark"):
-                return 'dark'
-            else:
-                return 'light'
-    else:
-        return 'light'
-
 
 # Create your views here.
 def register(response):
@@ -42,7 +29,7 @@ def register(response):
         return redirect("/login")
     else:
         form = RegisterForm()
-        return render(response, "register/register.html", {"form": form, 'theme':CheckDarkTheme(response)})
+        return render(response, "register/register.html", {"form": form})
 
 @login_required
 def editprofile(response):
@@ -68,7 +55,7 @@ def editprofile(response):
                     theme = 2
                 else:
                     theme = 1
-                themeform = ThemeForm(initial={"theme": theme})
+                themeform = ThemeForm(initial={"theme":theme})
         else:
             themeform = ThemeForm()
         
@@ -105,7 +92,7 @@ def password_reset_request(request):
             messages.success(request, 'A message with reset password instructions has been sent to your inbox.')
             return redirect("/")
     password_reset_form = PasswordResetForm()
-    return render(request, "register/password_reset.html", {"password_reset_form": password_reset_form, "theme":CheckDarkTheme(request)})
+    return render(request, "register/password_reset.html", {"password_reset_form": password_reset_form})
 
 def passworddone(request):
     return redirect("/", {"theme":CheckDarkTheme(request)})
@@ -113,4 +100,4 @@ def passworddone(request):
 @login_required
 def passwordchange(request):
     passwordchangeform = PasswordChangeForm()
-    return render(request, "register/change-password.html",{"form":passwordchangeform, "theme":CheckDarkTheme(request)})
+    return render(request, "register/change-password.html",{"form":passwordchangeform})
