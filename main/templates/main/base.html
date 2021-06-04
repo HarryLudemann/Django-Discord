@@ -69,12 +69,30 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                 
-                <!-- Profile links -->
+                <!-- If user is authenticated links -->
                 {% if user.discord_tag != none %}
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/changeprivileges">Change Perm</a>
+                <!-- Servers Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        id="navbarDropdownMenuLink"
+                        role="button"
+                        data-mdb-toggle="dropdown"
+                        aria-expanded="false"
+                        >
+                        Servers
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        {% for item in guilds %}
+                            <li>
+                                <a class="dropdown-item" href="/changeprivileges">{{item.name}}</a>
+                            </li>
+                        {% endfor %}
+                        </ul>
                     </li>
-                    <!-- Dropdown -->
+
+                    <!-- Account Dropdown -->
                     <li class="nav-item dropdown">
                         <a
                         class="nav-link dropdown-toggle"
@@ -100,6 +118,7 @@
                         </li>
                         </ul>
                     </li>
+                    
                 {% else %}
                     <div class="d-flex align-items-center">
                         <a href="/oauth2/login"><button type="button" class="btn btn-link px-3 me-2 text-theme">

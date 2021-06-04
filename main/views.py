@@ -44,8 +44,6 @@ def exchange_code(code):
 def home(response):
     return render(response, "main/home.html", {})
 
-def guildslist(response):
-    return render(response, "main/guildslist.html", {})
 
 def discordlogin(response):
     return redirect(discord_login)
