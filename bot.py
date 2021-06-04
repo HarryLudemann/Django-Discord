@@ -21,5 +21,6 @@ token = str(os.getenv("DiscordBotToken"))
 for filename in os.listdir('./cogs'):
   if filename.endswith('.py'):
     client.load_extension(f'cogs.{filename[:-3]}')
+    
 # Run Bot
 client.run(token)

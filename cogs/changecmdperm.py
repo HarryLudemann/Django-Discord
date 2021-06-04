@@ -4,6 +4,8 @@ from discord.ext import commands
 # Custom Modules
 import functions
 
+client = discord.Client
+
 class Basic(commands.Cog):
 
     def __init__(self, client):
@@ -22,9 +24,11 @@ class Basic(commands.Cog):
     @commands.command(name='test', help='Stop Bot', pass_context = True)
     @commands.check(check_test_permission)
     async def test(self, ctx):
-        identifier = functions.GetConfigValue('identifier', str(ctx.guild.id))
-        await ctx.send(identifier)
-
+        activeservers = client.guilds
+        for guild in activeservers:
+            await ctx.send(guild.name)
+            print(guild.name)
+            print(guild.id)
 
 def setup(client):
     client.add_cog(Basic(client))
