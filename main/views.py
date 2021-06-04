@@ -35,7 +35,8 @@ def exchange_code(code):
     user = response.json()
     for n in range(len(guildslist)):
         if (str(guildslist[n]['owner']) == 'True'):
-            Guilds(userid=user['id'], guildid=guildslist[0]['id'], icon=guildslist[0]['icon'], name=guildslist[0]['name'])
+            obj = Guilds(userid=user['id'], guildid=guildslist[0]['id'], icon=guildslist[0]['icon'], name=guildslist[0]['name'])
+            obj.save()
             #print(str(guildslist[n]['name']))
     #print(user)
     return user
