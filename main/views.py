@@ -33,9 +33,14 @@ def exchange_code(code):
     response2 = requests.get("https://discord.com/api/v6/users/@me/guilds", headers={'Authorization':'Bearer %s' %access_token})
     guildslist = response2.json()
     user = response.json()
+    
+    #check if guilds already excist for user and delete
+    obj = Guilds.objects.all()
+    if (obj.filter(userid=response.user.id).exists()):
+        obj.filter(userid=response.user.id).delete()
     for n in range(len(guildslist)):
         if (str(guildslist[n]['owner']) == 'True'):
-            obj = Guilds(userid=user['id'], guildid=guildslist[0]['id'], icon=guildslist[0]['icon'], name=guildslist[0]['name'])
+            obj = Guilds(userid=user['id'], guildid=guildslist[n]['id'], icon=guildslist[n]['icon'], name=guildslist[n]['name'])
             obj.save()
             #print(str(guildslist[n]['name']))
     #print(user)
