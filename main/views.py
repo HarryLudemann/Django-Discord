@@ -11,7 +11,7 @@ import requests
 import os
 from django.contrib.auth import authenticate, login
 
-discord_login = 'https://discord.com/api/oauth2/authorize?client_id=833177090350252072&redirect_uri=https%3A%2F%2Fhazzahsbot.herokuapp.com%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify%20guilds%20connections'
+discord_login = 'https://discord.com/api/oauth2/authorize?client_id=833177090350252072&redirect_uri=https%3A%2F%2Fhazzahsbot.herokuapp.com%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify%20email%20guilds'
 discord_addbot = 'https://discord.com/api/oauth2/authorize?client_id=833177090350252072&permissions=8&scope=bot'
 
 def exchange_code(code):
@@ -21,14 +21,12 @@ def exchange_code(code):
         'grant_type' : 'authorization_code',
         'code' : code,
         'redirect_uri' : 'https://hazzahsbot.herokuapp.com/oauth2/login/redirect',
-        'scope': 'identify guilds connections'
+        'scope': 'identify email connections'
     }
     headers = {
         'Content_Type': 'application/x-www-form-urlencoded'
     }
     response = requests.post("https://discord.com/api/oauth2/token", data=data, headers=headers)
-    print(response)
-    print(response.json)
     credentials = response.json()
     access_token = credentials['access_token']
     response = requests.get("https://discord.com/api/v6/users/@me", headers={'Authorization':'Bearer %s' %access_token})
