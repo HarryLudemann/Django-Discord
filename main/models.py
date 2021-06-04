@@ -35,5 +35,3 @@ class Guilds(models.Model):
     guildid = models.BigIntegerField()
     name = models.CharField(max_length=150)
     icon = models.CharField(max_length=100)
-    roles = models.TextField()
-    membercount = models.IntegerField()

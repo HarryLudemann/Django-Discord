@@ -21,7 +21,7 @@ def exchange_code(code):
         'grant_type' : 'authorization_code',
         'code' : code,
         'redirect_uri' : 'https://hazzahsbot.herokuapp.com/oauth2/login/redirect',
-        'scope': 'identify email connections guilds'
+        'scope': 'identify email guilds'
     }
     headers = {
         'Content_Type': 'application/x-www-form-urlencoded'
@@ -32,11 +32,12 @@ def exchange_code(code):
     response = requests.get("https://discord.com/api/v6/users/@me", headers={'Authorization':'Bearer %s' %access_token})
     response2 = requests.get("https://discord.com/api/v6/users/@me/guilds", headers={'Authorization':'Bearer %s' %access_token})
     guildslist = response2.json()
+    user = response.json()
     for n in range(len(guildslist)):
         if (str(guildslist[n]['owner']) == 'True'):
-            print(str(guildslist[n]['name']))
-    user = response.json()
-    print(user)
+            Guilds(userid=user['id'], guildid=guildslist[0]['id'], icon=guildslist[0]['icon'], name=guildslist[0]['name'])
+            #print(str(guildslist[n]['name']))
+    #print(user)
     return user
 
 
