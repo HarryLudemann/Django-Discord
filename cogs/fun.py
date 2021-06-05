@@ -119,7 +119,7 @@ class Fun(commands.Cog):
         await ctx.send(embed=embed)
         
 
-    @commands.command(name='test1', help='Stop Bot', pass_context = True)
+    @commands.command()
     async def test1(self, ctx):
         print('test')
         activeservers = client.guilds
