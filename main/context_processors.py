@@ -1,7 +1,5 @@
 from register.models import Themes
 from main.models import Guilds
-from bot import BotsGuilds
-import asyncio
 
 # Checks theme
 def CheckDarkTheme(response):
