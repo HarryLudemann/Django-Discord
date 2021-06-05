@@ -9,7 +9,7 @@ from main.models import Privileges, ConnectedGuilds
 def CreateConfigFile(GuildID):
     if (Privileges.objects.filter(guildid=GuildID).exists()):
         Privileges.objects.filter(guildid=GuildID).delete()
-    obj = Privileges(guildid=GuildID, userid=" ", identifier=" ", funinspire=" ", funcomeback=" ", funcat=" ", fundog=" ", funfox=" ", basicping=" ", adminquit=" ", adminchangeprefix=" ", admintest=" ")
+    obj = Privileges(guildid=GuildID, userid="@everyone", identifier="$", funinspire="@everyone", funcomeback="@everyone", funcat="@everyone", fundog="@everyone", funfox="@everyone", basicping="@everyone", adminquit="@everyone", adminchangeprefix="@everyone", admintest="@everyone")
     obj.save()
 
 # Get Saved Config Value
