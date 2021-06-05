@@ -1,4 +1,3 @@
-from django.dispatch.dispatcher import Signal
 from register.models import Themes
 from main.models import Guilds, ConnectedGuilds
 

@@ -31,6 +31,7 @@ async def on_guild_join(guild):
   Guildlist = []
   for item in client.guilds:              
       Guildlist.append(item.id)
+      print(item.id)
   functions.UpdateConnectedGuilds(Guildlist)
   print('Added Guild ' + str(guild) + ' to Connected Guilds To Server')
 
