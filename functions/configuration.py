@@ -14,7 +14,7 @@ def CreateConfigFile(GuildID):
 
 # Get Saved Config Value
 def GetConfigValue(Value, GuildID):
-    obj = Privileges.objects.get(guildid=GuildID)
+    obj = Privileges.objects.filter(guildid=GuildID)
     for item in obj:
         if Value == 'identifier':
             if (item.identifier == None):
