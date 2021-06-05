@@ -2,7 +2,6 @@
 import os # for loading cog files
 import discord
 from discord.ext import commands
-from discord.utils import get
 # Custom Modules
 import functions
 
@@ -23,12 +22,11 @@ for filename in os.listdir('./cogs'):
     client.load_extension(f'cogs.{filename[:-3]}')
 
 
-@client.command() 
-@commands.is_owner() 
-async def broadcast(ctx):  
-  print('ran')   
+def GetBotsGuilds(): 
+  Guilds = []
   for guild in client.guilds:              
-    await ctx.send(guild.name) 
+    Guilds.append(guild.id)
+  return Guilds
 
 # Run Bot
 client.run(token)

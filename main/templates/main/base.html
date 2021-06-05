@@ -85,9 +85,15 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         {% for item in guilds %}
+                            {% if item.id in botsguilds%}
                             <li>
                                 <a class="dropdown-item" href="/changeprivileges">{{item.name}}</a>
                             </li>
+                            {% else %}
+                            <li>
+                                <a class="dropdown-item" href="#">{{item.name}}</a>
+                            </li>
+                            {% endif %}
                         {% endfor %}
                         </ul>
                     </li>

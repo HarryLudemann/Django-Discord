@@ -1,5 +1,6 @@
 from register.models import Themes
 from main.models import Guilds
+from bot import GetBotsGuilds
 
 # Checks theme
 def CheckDarkTheme(response):
@@ -25,7 +26,9 @@ def GetGuilds(response):
 def add_variable_to_context(request):
     Theme = CheckDarkTheme(request)
     Guilds = GetGuilds(request)
+    BotsGuilds = GetBotsGuilds()
     return {
         'theme': Theme,
-        'guilds': Guilds
+        'guilds': Guilds,
+        'botsguilds': BotsGuilds
     }
