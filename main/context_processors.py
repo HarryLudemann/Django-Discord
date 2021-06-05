@@ -1,6 +1,6 @@
 from django.dispatch.dispatcher import Signal
 from register.models import Themes
-from main.models import Guilds
+from main.models import Guilds, ConnectedGuilds
 
 # Checks theme
 def CheckDarkTheme(response):
@@ -27,9 +27,10 @@ def GetGuilds(response):
 def add_variable_to_context(request):
     Theme = CheckDarkTheme(request)
     Guilds = GetGuilds(request)
+    ConnectedGuildsList = ConnectedGuilds.objects.all()
     
     return {
         'theme': Theme,
         'guilds': Guilds,
-        'botsguilds': None
+        'botsguilds': ConnectedGuildsList
     }

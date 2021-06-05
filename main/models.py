@@ -30,8 +30,13 @@ class DiscordUser(models.Model):
     def is_authenticated(self, request):
         return True
 
+# User Guilds
 class Guilds(models.Model):
     userid = models.CharField(max_length=50)
     guildid = models.BigIntegerField()
     name = models.CharField(max_length=150)
     icon = models.CharField(max_length=100)
+
+# Guilds Connected to bots
+class ConnectedGuilds(models.Model):
+    guildid = models.BigIntegerField()

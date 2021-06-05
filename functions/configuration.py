@@ -3,7 +3,7 @@ import os
 import django
 os.environ["DJANGO_SETTINGS_MODULE"] = 'mysite.settings'
 django.setup()
-from main.models import Privileges
+from main.models import Privileges, ConnectedGuilds
 
 # Create Config File
 def CreateConfigFile(GuildID):
@@ -41,6 +41,11 @@ def SetConfigValue(Value, NewValue, GuildID):
         elif Value == 'admin-test': item.admintest = NewValue
         item.save()
     
+# Update Connected Guilds
+def UpdateConnectedGuilds(GuildsList):
+    for item in GuildsList:
+        obj = ConnectedGuilds(guildid=item)
+        obj.save()
 
 if (__name__ == "__main__"):
     CreateConfigFile('677326100686438430') # GuildID For HAX00R
