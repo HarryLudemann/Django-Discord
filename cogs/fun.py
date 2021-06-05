@@ -11,6 +11,8 @@ from foaas import fuck
 # Custom Modules
 import functions
 
+client = discord.Client
+
 class Fun(commands.Cog):
     def __init__(self, client):
         self.client = client
@@ -121,8 +123,8 @@ class Fun(commands.Cog):
 
     @commands.command()
     async def test1(self, ctx):
-        print('test')
         activeservers = client.guilds
+        print(str(len(activeservers)))
         for guild in activeservers:
             print(guild.name)
             print(guild.id)

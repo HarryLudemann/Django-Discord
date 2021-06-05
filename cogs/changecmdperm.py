@@ -24,13 +24,7 @@ class Basic(commands.Cog):
     @commands.command(name='test', help='Stop Bot', pass_context = True)
     @commands.check(check_test_permission)
     async def test(self, ctx):
-        activeservers = client.guilds
-        for guild in activeservers:
-            print(guild.name)
-            print(guild.id)
-            await ctx.send(guild.name)
-        print('test')
-        await ctx.send(str(len(activeservers)))
+        await ctx.send('test')
 
 def setup(client):
     client.add_cog(Basic(client))
