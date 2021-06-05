@@ -22,6 +22,11 @@ for filename in os.listdir('./cogs'):
     client.load_extension(f'cogs.{filename[:-3]}')
 
 
+async def BotsGuilds(): 
+  GuildIDs = []
+  for guild in client.guilds:              
+    GuildIDs.append(guild.id)
+  return GuildIDs
 
 # Run Bot
 client.run(token)

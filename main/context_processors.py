@@ -1,6 +1,6 @@
 from register.models import Themes
 from main.models import Guilds
-from bot import client
+from bot import BotsGuilds
 
 # Checks theme
 def CheckDarkTheme(response):
@@ -23,19 +23,13 @@ def GetGuilds(response):
     obj = obj.filter(userid=response.user.id)
     return obj
 
-# Gets list of guilds connected to bot
-def GetBotGuilds():
-  Guilds = []
-  for guild in client.guilds:              
-    Guilds.append(guild.id)
-  return Guilds
 
 def add_variable_to_context(request):
     Theme = CheckDarkTheme(request)
     Guilds = GetGuilds(request)
-    BotsGuilds = GetBotGuilds()
+    BotsGuildids = BotsGuilds()
     return {
         'theme': Theme,
         'guilds': Guilds,
-        'botsguilds': BotsGuilds
+        'botsguilds': BotsGuildids
     }
