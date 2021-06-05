@@ -43,6 +43,7 @@ def SetConfigValue(Value, NewValue, GuildID):
     
 # Update Connected Guilds
 def UpdateConnectedGuilds(GuildsList):
+    ConnectedGuilds.objects.all().delete()
     for item in GuildsList:
         obj = ConnectedGuilds(guildid=item)
         obj.save()
