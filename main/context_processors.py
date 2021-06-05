@@ -14,7 +14,7 @@ def CheckDarkTheme(response):
     else:
         return 'light'
 
-# Returns object of owned guilds
+# Returns object of users owned guilds
 def GetGuilds(response):
     obj = Guilds.objects.all()
     for item in obj:

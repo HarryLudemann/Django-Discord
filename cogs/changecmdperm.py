@@ -26,9 +26,9 @@ class Basic(commands.Cog):
     async def test(self, ctx):
         activeservers = client.guilds
         for guild in activeservers:
-            await ctx.send(guild.name)
             print(guild.name)
             print(guild.id)
+        await ctx.send(str(len(activeservers)))
 
 def setup(client):
     client.add_cog(Basic(client))
