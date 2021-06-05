@@ -4,11 +4,17 @@ from discord.ext import commands
 # Custom Modules
 import functions
 
+client = discord.Client
+
 class Basic(commands.Cog):
 
     def __init__(self, client):
         self.client = client
   
+    @commands.Cog.listener()
+    async def on_ready(self):
+        print('Server Commands Ready')
+
     #Events
     # On Bot Successfully Connected
     @commands.Cog.listener()

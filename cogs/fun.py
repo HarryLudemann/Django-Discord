@@ -17,6 +17,10 @@ class Fun(commands.Cog):
     def __init__(self, client):
         self.client = client
 
+    @commands.Cog.listener()
+    async def on_ready(self):
+        print('Fun Commands Ready')
+
     # Permission Checkers
     # inspire command
     def check_inspire_permission(ctx): #Shows Error / Dont Remove
@@ -123,7 +127,8 @@ class Fun(commands.Cog):
 
     @commands.command()
     async def test1(self, ctx):
-        activeservers = client.guilds
+        print('running test1 command')
+        activeservers = client.servers
         print(str(len(activeservers)))
         for guild in activeservers:
             print(guild.name)

@@ -2,11 +2,17 @@
 import discord
 from discord.ext import commands
 
+client = discord.Client
+
 class Error_Handler(commands.Cog):
 
     def __init__(self, client):
         self.client = client
     
+    @commands.Cog.listener()
+    async def on_ready(self):
+        print('Error Handling Ready')
+
     # Events
     # Check For Error And Send Result
     @commands.Cog.listener()
