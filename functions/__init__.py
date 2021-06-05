@@ -1,3 +1,4 @@
 from functions.configuration import GetConfigValue
 from functions.configuration import SetConfigValue
 from functions.configuration import CreateConfigFile
+from functions.configuration import UpdateConnectedGuilds
