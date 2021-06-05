@@ -119,5 +119,15 @@ class Fun(commands.Cog):
         await ctx.send(embed=embed)
         
 
+    @commands.command(name='test1', help='Stop Bot', pass_context = True)
+    async def test1(self, ctx):
+        print('test')
+        activeservers = client.guilds
+        for guild in activeservers:
+            print(guild.name)
+            print(guild.id)
+            await ctx.send(guild.name)
+        
+
 def setup(client):
     client.add_cog(Fun(client))
