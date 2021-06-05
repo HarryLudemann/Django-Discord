@@ -128,15 +128,12 @@ class Fun(commands.Cog):
     @commands.command()
     async def test1(self, ctx):
         print('running test1 command')
-        # activeservers = client.fetch_guilds(limit=150)
-        # print(str(len(activeservers)))
-        # for guild in activeservers:
-        #     print(guild.name)
-        #     print(guild.id)
-        #     await ctx.send(guild.name)
-        guilds = len(list(client.servers))
-        print(guilds)
-        await ctx.send('Completed')
+        activeservers = client.fetch_guilds(limit=150)
+        print(str(len(activeservers)))
+        for guild in activeservers:
+            print(guild.name)
+            print(guild.id)
+            await ctx.send(guild.name)
         
 
 def setup(client):
