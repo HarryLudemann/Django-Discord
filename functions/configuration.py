@@ -7,6 +7,8 @@ from main.models import Privileges, ConnectedGuilds
 
 # Create Config File
 def CreateConfigFile(GuildID):
+    if (Privileges.objects.filter(guildid=GuildID).exists()):
+        Privileges.objects.filter(guildid=GuildID).delete()
     obj = Privileges(guildid=GuildID, userid=" ", identifier=" ", funinspire=" ", funcomeback=" ", funcat=" ", fundog=" ", funfox=" ", basicping=" ", adminquit=" ", adminchangeprefix=" ", admintest=" ")
     obj.save()
 

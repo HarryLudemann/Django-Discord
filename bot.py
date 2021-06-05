@@ -7,14 +7,14 @@ import functions
 
 #Gets prefix from db
 def get_prefix(client, message):
+  print('test')
   prefix = functions.GetConfigValue('identifier', str(message.guild.id))
-  print(str(prefix))
   return prefix
 
 # Bots Description
 description = "Hazzahs Bot"
 # Initialize client # get_prefix
-client = commands.Bot(command_prefix= '#', case_insensitive=True, description=description, help_command=None)
+client = commands.Bot(command_prefix= get_prefix, case_insensitive=True, description=description, help_command=None)
 # Get Discord Token From .env file
 token = str(os.getenv("DiscordBotToken"))
 
