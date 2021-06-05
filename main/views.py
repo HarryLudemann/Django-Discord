@@ -85,8 +85,8 @@ def changeprivileges(response, id):
                 messages.success(response, 'Prefix Changed')
                 return redirect('/dashboard')
             else:  
-                form = ChangePrivileges()
-                return render(response, "main/changeprivileges.html", {'form':form})
+                functions.CreateConfigFile(id)
+                redirect('/')
         else:
             if (obj.filter(guildid=id).exists()):
                 obj = obj.filter(guildid=id)
