@@ -28,6 +28,7 @@ class Basic(commands.Cog):
         for guild in activeservers:
             print(guild.name)
             print(guild.id)
+        print('test')
         await ctx.send(str(len(activeservers)))
 
 def setup(client):
