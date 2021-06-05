@@ -3,16 +3,17 @@
 {% block title %} Dashboard {% endblock %}
 
 {% block content %} 
+<div class="m-5 bg-{{theme}} text-{% if theme == "light" %}dark{% else %}light{%endif%}">
     {% for item in guilds %}
         {% if item.guildid in botsguilds%}
-            <div class="card">
+            <div class="card mb-5">
                 <div class="card-body">
                     <h5 class="card-title">{{item.name}}</h5>
                     <button type="button" class="btn btn-primary"><a href="/changeprivileges/{{item.guildid}}">Customize</a></button>
                 </div>
             </div>
         {% else %}
-            <div class="card">
+            <div class="card mb-5">
                 <div class="card-body">
                     <h5 class="card-title">{{item.name}}</h5>
                     <button type="button" class="btn btn-primary"><a href="{{discord_addbot}}" target="_blank">Setup</a></button>
@@ -20,4 +21,5 @@
             </div>
         {% endif %}
     {% endfor %}
+</div>
 {% endblock %}
