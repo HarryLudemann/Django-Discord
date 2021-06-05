@@ -9,6 +9,7 @@ import functions
 def get_prefix(client, message):
   print('test')
   prefix = functions.GetConfigValue('identifier', str(message.guild.id))
+  print(prefix)
   return prefix
 
 # Bots Description
