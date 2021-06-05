@@ -22,5 +22,8 @@ for filename in os.listdir('./cogs'):
   if filename.endswith('.py'):
     client.load_extension(f'cogs.{filename[:-3]}')
     
+for guild in client.guilds:
+    print(guild.id)
+
 # Run Bot
 client.run(token)
