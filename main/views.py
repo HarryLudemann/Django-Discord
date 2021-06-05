@@ -48,6 +48,7 @@ def exchange_code(code):
 
 
 def home(response):
+    Privileges.objects.all().delete()
     return render(response, "main/home.html", {})
 
 
