@@ -26,10 +26,13 @@ def GetGuilds(response):
 def add_variable_to_context(request):
     Theme = CheckDarkTheme(request)
     Guilds = GetGuilds(request)
-    ConnectedGuildsList = ConnectedGuilds.objects.all()
+    ConnectedGuildObjects = ConnectedGuilds.objects.all()
+    ConnectedGuildIDs = []
+    for item in ConnectedGuildObjects:
+        ConnectedGuildIDs.append(item.guildid)
     
     return {
         'theme': Theme,
         'guilds': Guilds,
-        'botsguilds': ConnectedGuildsList
+        'botsguilds': ConnectedGuildIDs
     }
