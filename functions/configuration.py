@@ -14,9 +14,13 @@ def CreateConfigFile(GuildID):
 
 # Get Saved Config Value
 def GetConfigValue(Value, GuildID):
-    obj = Privileges.objects.filter(guildid=GuildID)
+    obj = Privileges.objects.get(guildid=GuildID)
     for item in obj:
-        if Value == 'identifier': return item.identifier
+        if Value == 'identifier':
+            if (item.identifier == None):
+                return '!'
+            else:
+                return item.identifier
         elif Value == 'fun-inspire': return item.funinspire
         elif Value == 'fun-comeback': return item.funcomeback
         elif Value == 'fun-cat': return item.funcat
