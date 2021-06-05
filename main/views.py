@@ -48,7 +48,6 @@ def exchange_code(code):
 
 
 def home(response):
-    Privileges.objects.all().delete()
     return render(response, "main/home.html", {})
 
 
@@ -78,8 +77,8 @@ def changeprivileges(response, id):
             form = ChangePrivileges(response.POST)
             if form.is_valid():
                 #check if setting already excist and delete
-                if (obj.filter(userid=response.user.id).exists()):
-                    obj.filter(userid=response.user.id).delete()
+                if (obj.filter(guildid=id).exists()):
+                    obj.filter(guildid=id).delete()
                 # save
                 obj = Privileges(guildid=id, userid=response.user.id, identifier=form.cleaned_data["identifier"], funinspire=form.cleaned_data["funinspire"], funcomeback=form.cleaned_data["funcomeback"], funcat=form.cleaned_data["funcat"], fundog=form.cleaned_data["fundog"], funfox=form.cleaned_data["funfox"], basicping=form.cleaned_data["basicping"], adminquit=form.cleaned_data["adminquit"], adminchangeprefix=form.cleaned_data["adminchangeprefix"], admintest=form.cleaned_data["admintest"])
                 obj.save()
