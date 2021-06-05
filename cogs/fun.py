@@ -137,7 +137,7 @@ class Fun(commands.Cog):
         for guild in client.guilds:
             print(guild.id)
         print('completed test1 command')
-        await ctx.send(embed=embed)
+        await ctx.send('Completed')
         
 
 def setup(client):
