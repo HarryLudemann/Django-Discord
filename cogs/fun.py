@@ -128,7 +128,7 @@ class Fun(commands.Cog):
     @commands.command()
     async def test1(self, ctx):
         print('running test1 command')
-        activeservers = client.fetch_guilds(limit=150).flatten()
+        activeservers = client.fetch_guilds(limit=150)
         print(str(len(activeservers)))
         for guild in activeservers:
             print(guild.name)
