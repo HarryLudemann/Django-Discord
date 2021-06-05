@@ -3,14 +3,14 @@ import discord
 from discord.ext import commands
 
 
-# class Error_Handler(commands.Cog):
+class Error_Handler(commands.Cog):
 
-#     def __init__(self, client):
-#         self.client = client
+    def __init__(self, client):
+        self.client = client
     
-#     @commands.Cog.listener()
-#     async def on_ready(self):
-#         print('Bot: Error Handling Ready')
+    @commands.Cog.listener()
+    async def on_ready(self):
+        print('Bot: Error Handling Ready')
 
 #     # Events
 #     # Check For Error And Send Result
@@ -23,5 +23,5 @@ from discord.ext import commands
 #         if isinstance(error, commands.MissingAnyRole):
 #             await ctx.send('You do not have required role')
 
-# def setup(client):
-#     client.add_cog(Error_Handler(client))
+def setup(client):
+    client.add_cog(Error_Handler(client))
