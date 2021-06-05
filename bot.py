@@ -7,7 +7,9 @@ import functions
 
 #Gets prefix from db
 def get_prefix(client, message):
-  return functions.GetConfigValue('identifier', str(message.guild.id))
+  prefix = functions.GetConfigValue('identifier', str(message.guild.id))
+  print(str(prefix))
+  return prefix
 
 # Bots Description
 description = "Hazzahs Bot"
