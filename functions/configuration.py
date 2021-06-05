@@ -7,7 +7,7 @@ from main.models import Privileges, ConnectedGuilds
 
 # Create Config File
 def CreateConfigFile(GuildID):
-    obj = Privileges(guildid=GuildID, userid=None, identifier=None, funinspire=None, funcomeback=None, funcat=None, fundog=None, funfox=None, basicping=None, adminquit=None, adminchangeprefix=None, admintest=None)
+    obj = Privileges(guildid=GuildID, userid=" ", identifier=" ", funinspire=" ", funcomeback=" ", funcat=" ", fundog=" ", funfox=" ", basicping=" ", adminquit=" ", adminchangeprefix=" ", admintest=" ")
     obj.save()
 
 # Get Saved Config Value
