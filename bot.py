@@ -27,11 +27,12 @@ async def botsguilds(ctx):
     await ctx.send(guild.name)
 
 @client.event()
-async def on_guild_join(self, guild):
+async def on_guild_join(guild):
   Guildlist = []
   for item in client.guilds:              
       Guildlist.append(item)
   functions.UpdateConnectedGuilds(Guildlist)
+  await print('Added ' + guild + ' Connected Guilds To Server')
 
 # Run Bot
 client.run(token)
