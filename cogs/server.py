@@ -31,7 +31,7 @@ class Basic(commands.Cog):
     async def on_guild_join(self, guild):
         try:
             functions.CreateConfigFile(str(guild.id))
-            print(f'Created .ini Infomation For {guild.name}')
+            print(f'Created Infomation For {guild.name}')
         except:
             print(f'{guild.name} Rejoined')
 

@@ -141,6 +141,11 @@
             </div>
         </nav>
         {% include 'main/messages.html' %}
+
+        {% for item in botsguilds %}
+            <p>{{item.guild}}</p>
+        {% endfor %}
+
         {% block content %}
         {% endblock %}
         
