@@ -66,12 +66,12 @@ def discordloginredirect(response):
     return redirect("/dashboard")
 
 @login_required(login_url='/oauth2/login')
-def changeprivileges(response, guildid):
+def changeprivileges(response, id):
     ownedguildids = []
     obj = Guilds.objects.filter(userid=response.user.id)
     for item in obj:
         ownedguildids.append(item.guildid)
-    if (guildid in ownedguildids):
+    if (id in ownedguildids):
         obj = Privileges.objects.all()
         if response.method == "POST":
             form = ChangePrivileges(response.POST)
@@ -80,10 +80,10 @@ def changeprivileges(response, guildid):
                 if (obj.filter(userid=response.user.id).exists()):
                     obj.filter(userid=response.user.id).delete()
                 # save
-                obj = Privileges(guildid=guildid, userid=response.user.id, identifier=form.cleaned_data["identifier"], funinspire=form.cleaned_data["funinspire"], funcomeback=form.cleaned_data["funcomeback"], funcat=form.cleaned_data["funcat"], fundog=form.cleaned_data["fundog"], funfox=form.cleaned_data["funfox"], basicping=form.cleaned_data["basicping"], adminquit=form.cleaned_data["adminquit"], adminchangeprefix=form.cleaned_data["adminchangeprefix"], admintest=form.cleaned_data["admintest"])
+                obj = Privileges(guildid=id, userid=response.user.id, identifier=form.cleaned_data["identifier"], funinspire=form.cleaned_data["funinspire"], funcomeback=form.cleaned_data["funcomeback"], funcat=form.cleaned_data["funcat"], fundog=form.cleaned_data["fundog"], funfox=form.cleaned_data["funfox"], basicping=form.cleaned_data["basicping"], adminquit=form.cleaned_data["adminquit"], adminchangeprefix=form.cleaned_data["adminchangeprefix"], admintest=form.cleaned_data["admintest"])
                 obj.save()
                 messages.success(response, 'Prefix Changed')
-                return redirect('/')
+                return redirect('/dashboard')
             else:  
                 form = ChangePrivileges()
                 return render(response, "main/changeprivileges.html", {'form':form})
