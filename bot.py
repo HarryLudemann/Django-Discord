@@ -13,8 +13,8 @@ def get_prefix(client, message):
 
 # Bots Description
 description = "Hazzahs Bot"
-# Initialize client
-client = commands.Bot(command_prefix= get_prefix, case_insensitive=True, description=description, help_command=None)
+# Initialize client # get_prefix
+client = commands.Bot(command_prefix= '#', case_insensitive=True, description=description, help_command=None)
 # Get Discord Token From .env file
 token = str(os.getenv("DiscordBotToken"))
 
