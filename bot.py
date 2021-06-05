@@ -25,22 +25,10 @@ for filename in os.listdir('./cogs'):
 
 @client.command() 
 @commands.is_owner() 
-async def broadcast(ctx, message):     
-    for guild in client.guilds:
-        # get the owner of guild
-        owner = guild.owner
-
-        # check if dm exists, if not create it
-        if owner.dm_channel is None:
-            await owner.create_dm()
-      
-        # if creation of dm successful
-        if owner.dm_channel != None:
-            await owner.dm_channel.send(message)
-   
-        for channel in guild.channels:             
-            if(channel.name == 'general'):                 
-                await channel.send(message)
+async def broadcast(ctx, message):  
+  print('ran')   
+  for guild in client.guilds:              
+    await ctx.send(guild.name) 
 
 # Run Bot
 client.run(token)
