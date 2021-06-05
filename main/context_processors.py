@@ -1,6 +1,6 @@
 from register.models import Themes
 from main.models import Guilds
-from bot import BotsGuilds
+from bot import BotsGuilds, client
 
 # Checks theme
 def CheckDarkTheme(response):
@@ -27,7 +27,7 @@ def GetGuilds(response):
 def add_variable_to_context(request):
     Theme = CheckDarkTheme(request)
     Guilds = GetGuilds(request)
-    BotsGuildids = BotsGuilds()
+    BotsGuildids = client.loop.create_task(BotsGuilds())
     return {
         'theme': Theme,
         'guilds': Guilds,
