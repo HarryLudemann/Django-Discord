@@ -22,11 +22,6 @@ for filename in os.listdir('./cogs'):
     client.load_extension(f'cogs.{filename[:-3]}')
 
 
-def GetBotsGuilds(): 
-  Guilds = []
-  for guild in client.guilds:              
-    Guilds.append(guild.id)
-  return Guilds
 
 # Run Bot
 client.run(token)
