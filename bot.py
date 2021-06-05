@@ -26,7 +26,7 @@ async def botsguilds(ctx):
   for guild in client.guilds:              
     await ctx.send(guild.name)
 
-@client.event()
+@client.event
 async def on_guild_join(guild):
   Guildlist = []
   for item in client.guilds:              
