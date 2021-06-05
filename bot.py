@@ -39,16 +39,5 @@ async def on_guild_join(guild):
   functions.UpdateConnectedGuilds(Guildlist)
   print('Added Guild ' + str(guild) + ' to Connected Guilds DB')
 
-# On Member Join
-@client.event
-async def on_member_remove(member):
-  Guildlist = []
-  for item in client.guilds:              
-      Guildlist.append(item.id)
-      print(item.id)
-  functions.UpdateConnectedGuilds(Guildlist)
-  print('Updated Connected Guilds DB')
-
-
 # Run Bot
 client.run(token)
