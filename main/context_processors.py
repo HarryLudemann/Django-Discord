@@ -34,5 +34,6 @@ def add_variable_to_context(request):
     return {
         'theme': Theme,
         'guilds': Guilds,
-        'botsguilds': ConnectedGuildIDs
+        'botsguilds': ConnectedGuildIDs,
+        'discord_addbot': 'https://discord.com/api/oauth2/authorize?client_id=833177090350252072&permissions=8&scope=bot'
     }
