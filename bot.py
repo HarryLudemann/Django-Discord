@@ -33,7 +33,7 @@ async def on_guild_join(guild):
       Guildlist.append(item.id)
       print(item.id)
   functions.UpdateConnectedGuilds(Guildlist)
-  print('Added Guild ' + str(guild) + ' to Connected Guilds To Server')
+  print('Added Guild ' + str(guild) + ' to Connected Guilds DB')
 
 # Run Bot
 client.run(token)

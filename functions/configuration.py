@@ -47,6 +47,9 @@ def UpdateConnectedGuilds(GuildsList):
     for item in GuildsList:
         obj = ConnectedGuilds(guildid=item)
         obj.save()
+    obj = ConnectedGuilds.objects.all()
+    print(str(obj.count()))
+    
 
 if (__name__ == "__main__"):
     CreateConfigFile('677326100686438430') # GuildID For HAX00R
