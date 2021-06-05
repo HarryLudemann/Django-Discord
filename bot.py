@@ -25,7 +25,7 @@ for filename in os.listdir('./cogs'):
 
 @client.command() 
 @commands.is_owner() 
-async def broadcast(ctx, message):  
+async def broadcast(ctx):  
   print('ran')   
   for guild in client.guilds:              
     await ctx.send(guild.name) 
