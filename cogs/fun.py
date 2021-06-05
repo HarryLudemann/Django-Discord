@@ -134,9 +134,8 @@ class Fun(commands.Cog):
         #     print(guild.name)
         #     print(guild.id)
         #     await ctx.send(guild.name)
-        for guild in client.guilds:
-            print(guild.id)
-        print('completed test1 command')
+        guilds = len(list(client.servers))
+        print(guilds)
         await ctx.send('Completed')
         
 
