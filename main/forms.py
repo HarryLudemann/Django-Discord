@@ -1,7 +1,6 @@
 from django import forms  
 
 class ChangePrivileges(forms.Form):
-    guildid = forms.CharField(max_length=200, required = False, label="Guild ID")
     identifier = forms.CharField(max_length=200, required = False, label="New Prefix")
     funinspire = forms.CharField(max_length=200, required = False, label="Inspire")
     funcomeback = forms.CharField(max_length=200, required = False, label="Comeback")

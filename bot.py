@@ -26,6 +26,7 @@ async def botsguilds(ctx):
   for guild in client.guilds:              
     await ctx.send(guild.name)
 
+# Gets list of guilds connected to bot and updates to model
 @client.event
 async def on_guild_join(guild):
   Guildlist = []

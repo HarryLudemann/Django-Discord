@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% load crispy_forms_tags %}
+{% block content %} 
+    {% for item in guilds %}
+        {% if item.guildid in botsguilds%}
+            <a href="/changeprivileges/{{item.guildid}}">{{item.name}}</a>
+        {% else %}
+            <a href="#">{{item.name}}</a>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

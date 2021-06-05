@@ -71,32 +71,6 @@
                 
                 <!-- If user is authenticated links -->
                 {% if user.discord_tag != none %}
-                <!-- Servers Dropdown -->
-                    <li class="nav-item dropdown">
-                        <a
-                        class="nav-link dropdown-toggle"
-                        href="#"
-                        id="navbarDropdownMenuLink"
-                        role="button"
-                        data-mdb-toggle="dropdown"
-                        aria-expanded="false"
-                        >
-                        Servers
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        {% for item in guilds %}
-                            {% if item.guildid in botsguilds%}
-                            <li>
-                                <a class="dropdown-item" href="/changeprivileges">{{item.name}}</a>
-                            </li>
-                            {% else %}
-                            <li>
-                                <a class="dropdown-item" href="{{item.guildid}}">{{item.name}}</a>
-                            </li>
-                            {% endif %}
-                        {% endfor %}
-                        </ul>
-                    </li>
 
                     <!-- Account Dropdown -->
                     <li class="nav-item dropdown">
