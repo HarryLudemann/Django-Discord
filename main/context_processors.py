@@ -28,7 +28,7 @@ def GetGuilds(response):
 def add_variable_to_context(request):
     Theme = CheckDarkTheme(request)
     Guilds = GetGuilds(request)
-    asyncio.run(BotsGuilds('hi!', 123))
+    asyncio.run(BotsGuilds())
     #BotsGuildids = client.loop.create_task(BotsGuilds())
     return {
         'theme': Theme,
