@@ -134,10 +134,8 @@ class Fun(commands.Cog):
         #     print(guild.name)
         #     print(guild.id)
         #     await ctx.send(guild.name)
-        guilds = await client.fetch_guilds(limit=150).flatten()
-        for guild in guilds:
-            print(guild.name)
-            await ctx.send(guild.name)
+        await ctx.send('finished')
+        
 
 def setup(client):
     client.add_cog(Fun(client))
