@@ -11,7 +11,7 @@ from foaas import fuck
 # Custom Modules
 import functions
 
-client = discord.Client
+client = discord.Client()
 
 class Fun(commands.Cog):
     def __init__(self, client):

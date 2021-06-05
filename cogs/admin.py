@@ -4,7 +4,6 @@ from discord.ext import commands
 # Custom Modules
 import functions
 
-client = discord.Client
 
 class Basic(commands.Cog):
 

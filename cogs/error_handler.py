@@ -2,7 +2,6 @@
 import discord
 from discord.ext import commands
 
-client = discord.Client
 
 class Error_Handler(commands.Cog):
 
