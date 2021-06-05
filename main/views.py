@@ -68,7 +68,7 @@ def discordloginredirect(response):
 @login_required(login_url='/oauth2/login')
 def changeprivileges(response, guildid):
     ownedguildids = []
-    obj = Guilds.filter(userid=response.user.id)
+    obj = Guilds.objects.filter(userid=response.user.id)
     for item in obj:
         ownedguildids.append(item.guildid)
     if (guildid in ownedguildids):
