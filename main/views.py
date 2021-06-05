@@ -63,7 +63,7 @@ def discordloginredirect(response):
     discord_user = discord_user.first()
     print(discord_user)
     login(response,discord_user)
-    return redirect("/")
+    return redirect("/dashboard")
 
 @login_required(login_url='/oauth2/login')
 def changeprivileges(response, guildid):
