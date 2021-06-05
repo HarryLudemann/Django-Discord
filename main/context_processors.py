@@ -1,5 +1,8 @@
+from django.dispatch.dispatcher import Signal
 from register.models import Themes
 from main.models import Guilds
+from bot import botsguilds
+import asyncio
 
 # Checks theme
 def CheckDarkTheme(response):
@@ -26,6 +29,8 @@ def GetGuilds(response):
 def add_variable_to_context(request):
     Theme = CheckDarkTheme(request)
     Guilds = GetGuilds(request)
+    asyncio.run(botsguilds(None))
+    
     return {
         'theme': Theme,
         'guilds': Guilds,
