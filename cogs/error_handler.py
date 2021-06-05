@@ -11,7 +11,7 @@ class Error_Handler(commands.Cog):
     
     @commands.Cog.listener()
     async def on_ready(self):
-        print('Error Handling Ready')
+        print('Bot: Error Handling Ready')
 
     # Events
     # Check For Error And Send Result

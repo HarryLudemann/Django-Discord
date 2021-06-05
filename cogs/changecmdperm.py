@@ -13,7 +13,7 @@ class Basic(commands.Cog):
     
     @commands.Cog.listener()
     async def on_ready(self):
-        print('Priveldge Commands Ready')
+        print('Bot: Priveldge Commands Ready')
 
     # Permission Checkers
     # test command permissions 

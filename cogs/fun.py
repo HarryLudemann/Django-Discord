@@ -19,7 +19,7 @@ class Fun(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print('Fun Commands Ready')
+        print('Bot: Fun Commands Ready')
 
     # Permission Checkers
     # inspire command
@@ -128,7 +128,7 @@ class Fun(commands.Cog):
     @commands.command()
     async def test1(self, ctx):
         print('running test1 command')
-        activeservers = client.servers
+        activeservers = await client.fetch_guilds(limit=150).flatten()
         print(str(len(activeservers)))
         for guild in activeservers:
             print(guild.name)

@@ -13,7 +13,7 @@ class Basic(commands.Cog):
   
     @commands.Cog.listener()
     async def on_ready(self):
-        print('Server Commands Ready')
+        print('Bot: Server Commands Ready')
 
     #Events
     # On Bot Successfully Connected
@@ -84,7 +84,7 @@ Fun:
 
     # Get Current Server Info
     @commands.command(name='info', help='Server Info', pass_context = True)
-    async def info(self, gui):
+    async def info(self, ctx):
       await ctx.send(f'{ctx.author.name}, you are currently in {ctx.guild.name} ({ctx.guild.id}).')
 
 

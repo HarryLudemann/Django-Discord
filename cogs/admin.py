@@ -13,7 +13,7 @@ class Basic(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print('Admin Commands Ready')
+        print('Bot: Admin Commands Ready')
 
     # Permission Checkers
     #q command permissions 
