@@ -30,7 +30,7 @@ async def botsguilds(ctx):
 async def on_guild_join(guild):
   Guildlist = []
   for item in client.guilds:              
-      Guildlist.append(item)
+      Guildlist.append(item.id)
   functions.UpdateConnectedGuilds(Guildlist)
   await print('Added ' + guild + ' Connected Guilds To Server')
 
