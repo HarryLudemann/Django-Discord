@@ -88,8 +88,8 @@ def changeprivileges(response, id):
                 form = ChangePrivileges()
                 return render(response, "main/changeprivileges.html", {'form':form})
         else:
-            if (obj.filter(userid=response.user.id).exists()):
-                obj = obj.filter(userid=response.user.id)
+            if (obj.filter(guildid=id).exists()):
+                obj = obj.filter(guildid=id)
                 for item in obj: #filter only iterable only run once
                     form = ChangePrivileges(initial={'guildid':item.guildid,'identifier':item.identifier, 'funinspire':item.funinspire, 'funcomeback':item.funcomeback, 'funcat':item.funcat, 'fundog':item.fundog, 'funfox':item.funfox, 'basicping':item.basicping, 'adminquit':item.adminquit, 'adminchangeprefix':item.adminchangeprefix,'admintest':item.admintest})
             else:
