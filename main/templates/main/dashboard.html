@@ -9,14 +9,14 @@
             <div class="card mb-5 bg-{{theme}} text-{% if theme == "light" %}dark{% else %}light{%endif%}">
                 <div class="card-body">
                     <h5 class="card-title">{{item.name}}</h5>
-                    <button type="button" class="btn btn-primary"><a href="/changeprivileges/{{item.guildid}}">Customize</a></button>
+                    <a href="/changeprivileges/{{item.guildid}}"><button type="button" class="btn btn-primary">Customize</button></a>
                 </div>
             </div>
         {% else %}
             <div class="card mb-5 bg-{{theme}} text-{% if theme == "light" %}dark{% else %}light{%endif%} ">
                 <div class="card-body">
                     <h5 class="card-title">{{item.name}}</h5>
-                    <button type="button" class="btn btn-primary"><a href="{{discord_addbot}}" target="_blank">Setup</a></button>
+                    <a href="{{discord_addbot}}" target="_blank"><button type="button" class="btn btn-primary">Setup</button></a>
                 </div>
             </div>
         {% endif %}
