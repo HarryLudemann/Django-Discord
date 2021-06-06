@@ -86,43 +86,45 @@
 
                     <!-- Account Dropdown -->
                     <!-- Avatar -->
-                    <a
-                        class="dropdown-toggle d-flex align-items-center hidden-arrow"
-                        href="#"
-                        id="navbarDropdownMenuLink"
-                        role="button"
-                        data-mdb-toggle="dropdown"
-                        aria-expanded="false"
-                    > 
-                        <img
-                        src="https://cdn.discordapp.com/avatars/{{user.id}}/{{user.avatar}}.png"
-                        class="rounded-circle mr-2"
-                        height="25"
-                        alt=""
-                        loading="lazy"
-                        />
-                        <span class="mr-2">{{user.discord_tag}}</span>
-                        <i class="fas fa-caret-down"></i>
-                    </a>
-                    <ul
-                        class="dropdown-menu dropdown-menu-end"
-                        aria-labelledby="navbarDropdownMenuLink"
-                    >
-                        <li>
-                            <a class="dropdown-item" href="/dashboard">My Servers</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="/editprofile">Edit Profile</a>
-                        </li>
-                        {% comment %} {% if user.is_superuser %}
-                        <li>
-                            <a class="dropdown-item" href="/admin">Admin</a>
-                        </li>
-                        {%endif%} {% endcomment %}
-                        <li>
-                            <a class="dropdown-item" href="/logout">Logout</a>
-                        </li>
-                    </ul>
+                    <div class="d-flex align-items-center">
+                        <a
+                            class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                            href="#"
+                            id="navbarDropdownMenuLink"
+                            role="button"
+                            data-mdb-toggle="dropdown"
+                            aria-expanded="false"
+                        > 
+                            <img
+                            src="https://cdn.discordapp.com/avatars/{{user.id}}/{{user.avatar}}.png"
+                            class="rounded-circle mr-2"
+                            height="25"
+                            alt=""
+                            loading="lazy"
+                            />
+                            <span class="mr-2 text-{% if theme == "light" %}dark{% else %}light{%endif%}">{{user.discord_tag}}</span>
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                        <ul
+                            class="dropdown-menu dropdown-menu-end"
+                            aria-labelledby="navbarDropdownMenuLink"
+                        >
+                            <li>
+                                <a class="dropdown-item" href="/dashboard">My Servers</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/editprofile">Edit Profile</a>
+                            </li>
+                            {% comment %} {% if user.is_superuser %}
+                            <li>
+                                <a class="dropdown-item" href="/admin">Admin</a>
+                            </li>
+                            {%endif%} {% endcomment %}
+                            <li>
+                                <a class="dropdown-item" href="/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
 
                     
                 {% else %}
