@@ -34,6 +34,8 @@
         .dropdown-toggle:after {
         display: none;
         }
+        .hidemobile { display: block }
+        .onlymobile { display: none }
 
         .extendedmargins { margin: 50px 50px 50px 50px;}
 
@@ -45,7 +47,8 @@
                 width: 80%
             }
             .extendedmargins { margin: 0px 0px 0px 0px; }
-            .hidemobile { display: none }
+            .hidemobile { display: none; }
+            .onlymobile { display: block; }
         }
 
         </style>
@@ -103,7 +106,7 @@
                             alt=""
                             loading="lazy"
                             />
-                            <span class="mr-2 text-{% if theme == "light" %}dark{% else %}light{%endif%}">{{user.discord_tag|slice:":-3"}}</span>
+                            <span class="mr-2 text-{% if theme == "light" %}dark{% else %}light{%endif%}">{{user.discord_tag|slice:":-5"}}</span>
                             <i class="fas fa-caret-down"></i>
                         </a>
                         <ul
@@ -126,6 +129,31 @@
                             </li>
                         </ul>
                     </div>
+
+                    <!-- Dropdown -->
+                    <li class="onlymobile nav-item dropdown">
+                        <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        id="navbarDropdownMenuLink"
+                        role="button"
+                        data-mdb-toggle="dropdown"
+                        aria-expanded="false"
+                        >
+                        Dropdown link
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li>
+                            <a class="dropdown-item" href="#">Action</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Another action</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </li>
+                        </ul>
+                    </li>
 
                     
                 {% else %}
