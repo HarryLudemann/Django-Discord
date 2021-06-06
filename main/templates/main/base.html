@@ -94,15 +94,15 @@
                         data-mdb-toggle="dropdown"
                         aria-expanded="false"
                     > 
-                        {{user.discord_tag}}
                         <img
                         src="https://cdn.discordapp.com/avatars/{{user.id}}/{{user.avatar}}.png"
-                        class="rounded-circle"
+                        class="rounded-circle mr-2"
                         height="25"
                         alt=""
                         loading="lazy"
                         />
                     </a>
+                    <span class="mr-2">{{user.discord_tag}}</span>
                     <ul
                         class="dropdown-menu dropdown-menu-end"
                         aria-labelledby="navbarDropdownMenuLink"
