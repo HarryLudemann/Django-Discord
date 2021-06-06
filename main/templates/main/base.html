@@ -61,8 +61,7 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-{{theme}} bg-{{theme}}">
             <div class="container-fluid">
-                <a class="navbar-brand hidemobile" href="/">Hazzahs Bot</a>
-                <a class="navbar-brand onlymobile d-flex align-items-center justify-content-center" href="/">Hazzahs Bot</a>
+                <a class="navbar-brand" href="/">Hazzahs Bot</a>
                 <button
                 class="navbar-toggler"
                 type="button"
@@ -83,32 +82,19 @@
                 <!-- If user is authenticated links -->
                 {% if user.discord_tag != none %}
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/dashboard">Dashboard</a>
+                        <a class="nav-link hidemobile" aria-current="page" href="/dashboard">Dashboard</a>
                     </li>
-                    {% comment %} Mobile Nav {% endcomment %}
-                    <li class="onlymobile nav-item dropdown">
-                        <a
-                        class="nav-link dropdown-toggle"
-                        href="#"
-                        id="navbarDropdownMenuLink"
-                        role="button"
-                        data-mdb-toggle="dropdown"
-                        aria-expanded="false"
-                        >
-                        Account
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li>
-                                <a class="dropdown-item" href="/dashboard">My Servers</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="/editprofile">Edit Profile</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="/logout">Logout</a>
-                            </li>
-                        </ul>
-                    </li> 
+                    <li class="nav-item onlymobile">
+                        <a class="nav-link" aria-current="page" href="/dashboard">My Servers</a>
+                    </li>
+                    <li class="nav-item onlymobile">
+                        <a class="nav-link" aria-current="page" href="/editprofile">Edit Profile</a>
+                    </li>
+                    </li>
+                    <li class="nav-item onlymobile">
+                        <a class="nav-link" aria-current="page" href="/logout">Logout</a>
+                    </li>
+                    
                 </div>
                 {% else %}
                 </div>
