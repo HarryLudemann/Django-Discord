@@ -85,20 +85,29 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <!-- Account Dropdown -->
-                    <li class="nav-item dropdown">
-                        <a
-                        class="nav-link dropdown-toggle"
+                    <!-- Avatar -->
+                    <a
+                        class="dropdown-toggle d-flex align-items-center hidden-arrow"
                         href="#"
                         id="navbarDropdownMenuLink"
                         role="button"
                         data-mdb-toggle="dropdown"
                         aria-expanded="false"
-                        >
-                        {{user.discord_tag}}
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    >
+                        <img
+                        src="https://cdn.discordapp.com/avatars/{{user.id}}/{{user.avatar}}.png"
+                        class="rounded-circle"
+                        height="25"
+                        alt=""
+                        loading="lazy"
+                        />
+                    </a>
+                    <ul
+                        class="dropdown-menu dropdown-menu-end"
+                        aria-labelledby="navbarDropdownMenuLink"
+                    >
                         <li>
-                            <a class="dropdown-item" href="/editprofile">My Servers</a>
+                            <a class="dropdown-item" href="/dashboard">My Servers</a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="/editprofile">Edit Profile</a>
@@ -111,8 +120,8 @@
                         <li>
                             <a class="dropdown-item" href="/logout">Logout</a>
                         </li>
-                        </ul>
-                    </li>
+                    </ul>
+
                     
                 {% else %}
                     <div class="d-flex align-items-center">
