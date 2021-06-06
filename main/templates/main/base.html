@@ -140,6 +140,42 @@
                     </div>
                 </ul>
 
+                <ul class=" onlymobile navbar-nav ms-auto mb-2 mb-lg-0">
+                    <div class="d-flex align-items-center">
+                        <a
+                            class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                            href="#"
+                            id="navbarDropdownMenuLink"
+                            role="button"
+                            data-mdb-toggle="dropdown"
+                            aria-expanded="false"
+                        > 
+                            <img
+                            src="https://cdn.discordapp.com/avatars/{{user.id}}/{{user.avatar}}.png"
+                            class="rounded-circle mr-2"
+                            height="25"
+                            alt=""
+                            loading="lazy"
+                            />
+                        </a>
+                        <ul
+                            class="dropdown-menu dropdown-menu-end"
+                            aria-labelledby="navbarDropdownMenuLink"
+                        >
+                            <li>
+                                <a class="dropdown-item" href="/dashboard">My Servers</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/editprofile">Edit Profile</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </ul>
+
+
                 {% else %}
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <div class="d-flex align-items-center">
