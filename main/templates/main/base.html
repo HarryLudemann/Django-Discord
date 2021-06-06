@@ -40,6 +40,8 @@
         .extendedmargins { margin: 50px 50px 50px 50px;}
 
         @media screen and (max-width: 575px) {
+            .hidemobile { display: none; }
+            .onlymobile { display: block; }
             .btn-outline-primary {
                 margin-bottom: 15px;
             }
@@ -47,8 +49,6 @@
                 width: 80%
             }
             .extendedmargins { margin: 0px 0px 0px 0px; }
-            .hidemobile { display: none; }
-            .onlymobile { display: block; }
         }
 
         </style>
@@ -88,7 +88,7 @@
                 {% if user.discord_tag != none %}
                     <!-- Account Dropdown -->
                     <!-- Avatar -->
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class=" hidemobile navbar-nav ms-auto mb-2 mb-lg-0">
                     <div class="d-flex align-items-center">
                         <a
                             class="dropdown-toggle d-flex align-items-center hidden-arrow"
@@ -128,6 +128,7 @@
                             </li>
                         </ul>
                     </div>
+                </ul>
 
                 {% else %}
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
