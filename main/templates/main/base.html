@@ -64,7 +64,7 @@
                 <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
@@ -74,6 +74,12 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/dashboard">Dashboard</a>
                     </li>
+                </div>
+                {% else %}
+                </div>
+                {% endif%}
+                {% if user.discord_tag != none %}
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <!-- Account Dropdown -->
                     <li class="nav-item dropdown">
@@ -88,6 +94,9 @@
                         {{user.discord_tag}}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li>
+                            <a class="dropdown-item" href="/editprofile">My Servers</a>
+                        </li>
                         <li>
                             <a class="dropdown-item" href="/editprofile">Edit Profile</a>
                         </li>
@@ -107,7 +116,7 @@
                         <a href="/oauth2/login"><button type="button" class="btn btn-link px-3 me-2 text-theme">
                         Login
                         </button></a>
-                        <a href="/register"><button type="button" class="btn btn-primary btn-theme me-3">
+                        <a href="/oauth2/login"><button type="button" class="btn btn-primary btn-theme me-3">
                         Sign up for free
                         </button></a>
                     </div>
