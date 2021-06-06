@@ -34,14 +34,14 @@
         .dropdown-toggle:after {
         display: none;
         }
-        .hidemobile { display: block }
-        .onlymobile { display: none }
+        .hidemobile { display: block !important; }
+        .onlymobile { display: none !important; }
 
         .extendedmargins { margin: 50px 50px 50px 50px;}
 
         @media screen and (max-width: 575px) {
-            .hidemobile { display: none; }
-            .onlymobile { display: block; }
+            .hidemobile { display: none !important; }
+            .onlymobile { display: block !important; }
             .btn-outline-primary {
                 margin-bottom: 15px;
             }
