@@ -45,7 +45,7 @@
                 width: 80%
             }
             .extendedmargins { margin: 0px 0px 0px 0px; }
-            .hidemobile { display: none}
+            .hidemobile { display: none }
         }
 
         </style>
@@ -87,7 +87,7 @@
 
                     <!-- Account Dropdown -->
                     <!-- Avatar -->
-                    <div class="d-flex align-items-center hidemobile">
+                    <div class="hidemobile d-flex align-items-center">
                         <a
                             class="dropdown-toggle d-flex align-items-center hidden-arrow"
                             href="#"
@@ -103,7 +103,7 @@
                             alt=""
                             loading="lazy"
                             />
-                            <span class="mr-2 text-{% if theme == "light" %}dark{% else %}light{%endif%}">{{user.discord_tag}}</span>
+                            <span class="mr-2 text-{% if theme == "light" %}dark{% else %}light{%endif%}">{{user.discord_tag|slice:":-3"}}</span>
                             <i class="fas fa-caret-down"></i>
                         </a>
                         <ul
