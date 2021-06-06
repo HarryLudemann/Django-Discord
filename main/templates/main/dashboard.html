@@ -3,7 +3,7 @@
 {% block title %} Dashboard {% endblock %}
 
 {% block content %} 
-<div class="m-5 bg-{{theme}} text-{% if theme == "light" %}dark{% else %}light{%endif%}">
+<div class="m-5 bg-{{theme}} text-{% if theme == "light" %}dark{% else %}light{%endif%} extendedmargins">
     {% for item in guilds %}
         {% if item.guildid in botsguilds%}
             <div class="card mb-5 bg-{{theme}} text-{% if theme == "light" %}dark{% else %}light{%endif%}">
