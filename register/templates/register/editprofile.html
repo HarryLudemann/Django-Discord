@@ -4,7 +4,8 @@
 
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="container bg-{{theme}} text-{% if theme == "light" %}dark{% else %}light{%endif%}">  
+<div class="container m-5 bg-{{theme}} text-{% if theme == "light" %}dark{% else %}light{%endif%}">  
+    <h3> Change Prefix </h3>
     <form method="POST" class="form-group">
         {% csrf_token %}
         {{themeform.theme|as_crispy_field }}
