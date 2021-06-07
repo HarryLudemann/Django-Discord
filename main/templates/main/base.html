@@ -105,12 +105,11 @@
                         alt=""
                         loading="lazy"
                         />
-                        <span class="mr-2 text-{% if theme == "light" %}dark{% else %}light{%endif%}">{{user.discord_tag|slice:":-5"}}</span>
                         <i class="fas fa-caret-down" style="color: {% if theme == "light" %}black{% else %}white{%endif%}"></i>
                     </a>
                     <ul
                         {% comment %}  dropdown-menu-end {% endcomment %}
-                        class="dropdown-menu dropdown-menu-center bg-{{theme}}"
+                        class="dropdown-menu dropdown-menu-end bg-{{theme}}"
                         aria-labelledby="navbarDropdownMenuLink"
                     >
                         <li>
