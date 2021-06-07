@@ -72,7 +72,6 @@
                 aria-controls="navbarSupportedContent"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
-                onclick="CheckDropdownOpen()"
                 >
                 <i class="fas fa-bars"></i>
                 </button>
@@ -99,6 +98,7 @@
                         role="button"
                         data-mdb-toggle="dropdown"
                         aria-expanded="false"
+                        onclick="CheckDropdownOpen()"
                     >
                         <img
                         src="https://cdn.discordapp.com/avatars/{{user.id}}/{{user.avatar}}.png"
@@ -201,7 +201,7 @@
         <!-- MDB --> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js" ></script>
         <script> 
         (CheckDropdownOpen) => {
-            var Dropdown = document.getElementById('dropdown');
+            var Dropdown = document.getElementById('navbarSupportedContent');
             if ( Dropdown.css('display') == 'block')
             {
                 Dropdown.style.display = "none";
