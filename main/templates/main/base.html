@@ -9,7 +9,7 @@
         <title>{% block title %}{% endblock %}</title>
         <!-- Font Awesome --> <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
         <!-- MDB --> <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
         <style>
         a:link {
@@ -72,6 +72,7 @@
                 aria-controls="navbarSupportedContent"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
+                onclick="CheckDropdownOpen()"
                 >
                 <i class="fas fa-bars"></i>
                 </button>
@@ -198,6 +199,15 @@
         
 
         <!-- MDB --> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js" ></script>
+        <script> 
+        (CheckDropdownOpen) => {
+            var Dropdown = document.getElementById('dropdown');
+            if ( Dropdown.css('display') == 'block')
+            {
+                Dropdown.style.display = "none";
+            }
+        }
+        </script>
     </body>
 
 </html>
