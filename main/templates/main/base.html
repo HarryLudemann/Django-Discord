@@ -120,7 +120,7 @@
                             loading="lazy"
                             />
                             <span class="mr-2 text-{% if theme == "light" %}dark{% else %}light{%endif%}">{{user.discord_tag|slice:":-5"}}</span>
-                            <i class="fas fa-caret-down bg-{{theme}}"></i>
+                            <i class="fas fa-caret-down" style="color: {% if theme == "light" %}black{% else %}white{%endif%}"></i>
                         </a>
                         <ul
                             class="dropdown-menu dropdown-menu-end"
