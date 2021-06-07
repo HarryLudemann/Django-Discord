@@ -149,6 +149,44 @@
                 </div>
                 <!-- Collapsible wrapper -->
                 <!-- Container wrapper -->
+                {% if user.discord_tag != none %}
+                <!-- Right elements -->
+                <div class="navbar-brand d-flex align-items-center d-none d-lg-block d-xl-none">
+                    <!-- Avatar -->
+                    <a
+                        class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                        href="#"
+                        id="navbarDropdownMenuLink"
+                        role="button"
+                        data-mdb-toggle="dropdown"
+                        aria-expanded="false"
+                    >
+                        <img
+                        src="https://cdn.discordapp.com/avatars/{{user.id}}/{{user.avatar}}.png"
+                        class="rounded-circle"
+                        height="35"
+                        alt=""
+                        loading="lazy"
+                        />
+                        <i class="fas fa-caret-down" style="color: {% if theme == "light" %}black{% else %}white{%endif%}"></i>
+                    </a>
+                    <ul
+                        {% comment %}  dropdown-menu-end {% endcomment %}
+                        class="dropdown-menu dropdown-menu-end bg-{{theme}}"
+                        aria-labelledby="navbarDropdownMenuLink"
+                    >
+                        <li>
+                            <a class="dropdown-item text-{% if theme == "light" %}dark{% else %}light{%endif%}" href="/dashboard">My Servers</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-{% if theme == "light" %}dark{% else %}light{%endif%}" href="/editprofile">Settings</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-danger" href="/logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+                {% endif %}
             </div>
         </nav>
         <!-- Navbar -->
