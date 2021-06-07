@@ -200,16 +200,19 @@
 
         <!-- MDB --> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js" ></script>
         <script type="text/javascript"> 
-        function CheckDropdownOpen() {
-            console.log('Started');
-            var Dropdown = document.getElementById('navbarSupportedContent');
-            if ( Dropdown.style.display === "block")
-            {
-                console.log('Was Block');
-                Dropdown.style.display = "none";
-            }
-            console.log('Finshed');
-        }
+        $(function () {
+            $("#CheckDropdownOpen").on("click", function (e) {
+                alert("Hii");
+                console.log('Started');
+                var Dropdown = document.getElementById('navbarSupportedContent');
+                if ( Dropdown.style.display === "block")
+                {
+                    console.log('Was Block');
+                    Dropdown.style.display = "none";
+                }
+                console.log('Finshed');
+            });
+        });
         </script>
     </body>
 
