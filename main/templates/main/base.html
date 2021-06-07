@@ -75,18 +75,19 @@
             <i class="fas fa-bars"></i>
             </button>
 
+             <!-- Navbar brand -->
+            <a class="navbar-brand mt-2 mt-lg-0" href="/">
+                {% comment %} <img
+                src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"
+                height="15"
+                alt=""
+                loading="lazy"
+                /> {% endcomment %}
+                Hazzahs Bot
+            </a>
+
             <!-- Collapsible wrapper -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Navbar brand -->
-                <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                    {% comment %} <img
-                    src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"
-                    height="15"
-                    alt=""
-                    loading="lazy"
-                    /> {% endcomment %}
-                    Hazzahs Bot
-                </a>
                 <!-- Left links -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -94,7 +95,7 @@
                     </li>
                     {% if user.discord_tag != none %}
                     <li class="nav-item">
-                    <a class="nav-link" href="/dashboard">Dashboard</a>
+                        <a class="nav-link" href="/dashboard">Dashboard</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
@@ -108,9 +109,9 @@
                 <!-- Left links -->
             </div>
             <!-- Collapsible wrapper -->
-
-            
-            {% if user.discord_tag != none %}
+        </div>
+        <!-- Container wrapper -->
+        {% if user.discord_tag != none %}
             <!-- Right elements -->
             <div class="d-flex align-items-center">
                 <!-- Avatar -->
@@ -131,24 +132,21 @@
                     />
                 </a>
                 <ul
-                    class="dropdown-menu dropdown-menu-end"
+                    class="dropdown-menu dropdown-menu-end bg-{{theme}}"
                     aria-labelledby="navbarDropdownMenuLink"
                 >
                     <li>
-                    <a class="dropdown-item" href="/dashboard">My Servers</a>
+                        <a class="dropdown-item" href="/dashboard">My Servers</a>
                     </li>
                     <li>
-                    <a class="dropdown-item" href="/editprofile">Settings</a>
+                        <a class="dropdown-item" href="/editprofile">Settings</a>
                     </li>
                     <li>
-                    <a class="dropdown-item text-danger" href="/logout">Logout</a>
+                        <a class="dropdown-item text-danger" href="/logout">Logout</a>
                     </li>
                 </ul>
             </div>
             {% endif %}
-            <!-- Right elements -->
-        </div>
-        <!-- Container wrapper -->
         </nav>
         <!-- Navbar -->
         {% include 'main/messages.html' %}
