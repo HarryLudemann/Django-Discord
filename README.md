@@ -1,5 +1,5 @@
 # Django-Discord Private Repository
-Heroku: hazzahsbot
+https://hazzahsbot.herokuapp.com/
 
 ## **Bot Features:**
 1.  **Basic**
