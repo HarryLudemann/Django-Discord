@@ -1,5 +1,6 @@
-# Django-Discord Private Repository
-https://hazzahsbot.herokuapp.com/
+# Django-Discord 
+Discord Bot controllable from django website with oauth2   
+Demo: https://hazzahsbot.herokuapp.com/
 
 ## **Bot Features:**
 1.  **Basic**
