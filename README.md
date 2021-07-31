@@ -1,5 +1,6 @@
-# Django-Discord Private Repository
-https://hazzahsbot.herokuapp.com/
+# Django-Discord 
+Discord Bot controllable from django website with oauth2   
+Demo: https://hazzahsbot.herokuapp.com/
 
 ## **Bot Features:**
 1.  **Basic**
@@ -14,4 +15,4 @@ https://hazzahsbot.herokuapp.com/
 4.  **Admin**
   	* Q - Stop Bot
 
-
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
