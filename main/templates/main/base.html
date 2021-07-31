@@ -11,9 +11,10 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
         <!-- MDB --> <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
-        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+    </head>
 
-        <style>
+    <body class="bg-{{theme}} text-{% if theme == "light" %}dark{% else %}light{%endif%}">
+          <style>
         a:link {
             text-decoration: none;
             color: black;
@@ -57,35 +58,106 @@
             .onlymobile { display: block !important; }
         }
 
-        /*Testing Home*/
-
-        .dropdown-toggle:after {
-        display: none;
+         @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400|Roboto:300");
+        body {
+        -webkit-font-smoothing: antialiased;
+        font-size: 35px;
+        background-color: #FAFCFF;
         }
-        .hidemobile { display: block !important; }
-        .onlymobile { display: none !important; }
 
-        .extendedmargins { margin: 50px 50px 50px 50px;}
-
-        @media screen and (max-width: 575px) {
-            .btn-outline-primary {
-                margin-bottom: 15px;
-            }
-            .homesearchbutton {
-                width: 80%
-            }
-            .extendedmargins { margin: 0px 0px 0px 0px; }
+        .header {
+        margin-top: 150px;
+        height: 350px;
         }
-        
-        @media screen and (max-width: 925px) {
-            .hidemobile { display: none !important; }
-            .onlymobile { display: block !important; }
+
+        .name {
+        border: 1px solid #626972;
+        border-top: transparent;
+        border-left: transparent;
+        border-bottom: transparent;
+        height: 100%;
+        padding-right: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        }
+        .name p {
+        font-family: "Roboto", sans-serif;
+        font-size: 60px;
+        color: #040122;
+        line-height: 1.5;
+        letter-spacing: 4.8px;
+        }
+
+        .description {
+        color: #3E506C;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100%;
+        padding-left: 100px;
+        }
+
+        .oneLiner {
+        font-family: "Open Sans", sans-serif;
+        display: inline;
+        font-size: 35px;
+        font-weight: 300;
+        align-self: center;
+        }
+
+        .words {
+        align-self: center;
+        text-indent: 10px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        }
+        .words span {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 400;
+        position: absolute;
+        opacity: 0;
+        animation: slideWords 8s linear infinite;
+        }
+        .words span:nth-child(2) {
+        animation-delay: 1.6s;
+        }
+        .words span:nth-child(3) {
+        animation-delay: 3.2s;
+        }
+        .words span:nth-child(4) {
+        animation-delay: 4.8s;
+        }
+        .words span:nth-child(5) {
+        animation-delay: 6.4s;
+        }
+
+        .header-buttons {
+            background-color: #3E506C;
+            border-color: #3E506C;
+            color: #FAFCFF;
+            font-size: 20px;
+            font-weight: 300;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-family: "Open Sans", sans-serif;
+            border-radius: 5px;
+        }
+
+        @keyframes slideWords {
+            0%, 20% {
+                opacity: 0;
+            }
+            10%, 15% {
+                opacity: 1;
+            }
         }
 
         </style>
-    </head>
-
-    <body class="bg-{{theme}} text-{% if theme == "light" %}dark{% else %}light{%endif%}">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-{{theme}} bg-{{theme}} text-{% if theme == "light" %}dark{% else %}light{%endif%}">
         <!-- Container wrapper -->
