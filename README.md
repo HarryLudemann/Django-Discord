@@ -16,3 +16,5 @@ Demo: https://hazzahsbot.herokuapp.com/
   	* Q - Stop Bot
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+
+**To Collaborate Check Projects Todo List Board**
