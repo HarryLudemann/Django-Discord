@@ -6,12 +6,12 @@
 <div class="container">
     <div class="row header">
         <div class="col-sm-6 name">
-        <p>HAZZAH'S <br/>DISCORD <br/>BOT <br/>
+        <p class="text-{% if theme == "light" %}dark{% else %}light{%endif%}">HAZZAH'S <br/>DISCORD <br/>BOT <br/>
             <button class="btn btn-primary">Add to Discord</button>
             <button class="btn btn-primary">See Features</button>
         </p>
         
-        </div>
+        </div class="text-{% if theme == "light" %}dark{% else %}light{%endif%}">
             <div class="col-sm-6 description">
             <div class="oneLiner">With</div>
             <div class="words"><span>Configure Moderation</span><span>leveling, Twitch alerts</span><span>Music for your server</span><span>Self Assign Roles</span><span>Levels and XP</span></div>
