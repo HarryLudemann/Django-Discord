@@ -125,17 +125,5 @@ class Fun(commands.Cog):
         await ctx.send(embed=embed)
         
 
-    @commands.command()
-    async def test1(self, ctx):
-        print('running test1 command')
-        # activeservers = client.fetch_guilds(limit=150)
-        # print(str(len(activeservers)))
-        # for guild in activeservers:
-        #     print(guild.name)
-        #     print(guild.id)
-        #     await ctx.send(guild.name)
-        await ctx.send('finished')
-        
-
 def setup(client):
     client.add_cog(Fun(client))

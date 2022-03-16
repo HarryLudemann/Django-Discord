@@ -1,4 +1,3 @@
-# Import Modules
 import os # for loading cog files
 import discord
 from discord.ext import commands
@@ -7,46 +6,35 @@ import functions
 
 #Gets prefix from db
 def get_prefix(client, message):
-  print('test')
   prefix = functions.GetConfigValue('identifier', str(message.guild.id))
-  print(prefix)
   return prefix
 
-# Bots Description
-description = "Hazzahs Bot"
-# Initialize client # get_prefix
-client = commands.Bot(command_prefix= get_prefix, case_insensitive=True, description=description, help_command=None)
-# Get Discord Token From .env file
+client = commands.Bot(command_prefix= get_prefix, case_insensitive=True, description="Hazzahs Bot", help_command=None)
 token = str(os.getenv("DiscordBotToken"))
 
-# Load All Categorys in cogs folder
 for filename in os.listdir('./cogs'):
   if filename.endswith('.py'):
     client.load_extension(f'cogs.{filename[:-3]}')
 
-@client.command()
-async def botsguilds(ctx): 
-  for guild in client.guilds:              
-    await ctx.send(guild.name)
+# @client.command()
+# async def botsguilds(ctx): 
+#   for guild in client.guilds:              
+#     await ctx.send(guild.name)
 
-# Gets list of guilds connected to bot and updates to model
-@client.event
-async def on_guild_join(guild):
+def update_connected_bots(guild):
+  """ Gets list of guilds connected to bot and updates to model """
   Guildlist = []
   for item in client.guilds:              
       Guildlist.append(item.id)
-      print(item.id)
   functions.UpdateConnectedGuilds(Guildlist)
-  print('Added Guild ' + str(guild) + ' to Connected Guilds DB')
+
+@client.event
+async def on_guild_join(guild):
+  update_connected_bots(guild)
 
 @client.event
 async def on_guild_remove(guild):
-  Guildlist = []
-  for item in client.guilds:              
-      Guildlist.append(item.id)
-      print(item.id)
-  functions.UpdateConnectedGuilds(Guildlist)
-  print('Added Connected Guilds DB')
+  update_connected_bots(guild)
 
 
 # Run Bot

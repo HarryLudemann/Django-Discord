@@ -15,6 +15,7 @@ discord_login = 'https://discord.com/api/oauth2/authorize?client_id=833177090350
 discord_addbot = 'https://discord.com/api/oauth2/authorize?client_id=833177090350252072&permissions=8&scope=bot'
 
 def exchange_code(code):
+    """ Exchange the code for a token. """
     data = {
         'client_id' : os.getenv("CLIENT_ID"),
         'client_secret' : os.getenv("CLIENT_SECRET"),
@@ -50,23 +51,17 @@ def exchange_code(code):
 def home(response):
     return render(response, "main/home.html", {})
 
-
 def discordlogin(response):
     return redirect(discord_login)
 
 def discordloginredirect(response):
-    code = response.GET.get('code')
-    print(code)
-    user = exchange_code(code)
-    discord_user = authenticate(response, user=user)
-    #discord_user = list(discord_user).pop()
-    discord_user = discord_user.first()
-    print(discord_user)
-    login(response,discord_user)
+    user = exchange_code(response.GET.get('code'))
+    login(response, authenticate(response, user=user).first())
     return redirect("/dashboard")
 
 @login_required(login_url='/oauth2/login')
 def changeprivileges(response, id):
+    """ Settings Page """
     ownedguildids = []
     obj = Guilds.objects.filter(userid=response.user.id)
     for item in obj:
