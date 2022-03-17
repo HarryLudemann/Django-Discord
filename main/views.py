@@ -51,17 +51,19 @@ def exchange_code(code):
 def home(response):
     return render(response, "main/home.html", {})
 
+
 def discordlogin(response):
     return redirect(discord_login)
 
 def discordloginredirect(response):
     user = exchange_code(response.GET.get('code'))
-    login(response, authenticate(response, user=user).first())
+    discord_user = authenticate(response, user=user)
+    discord_user = discord_user.first()
+    login(response, discord_user)
     return redirect("/dashboard")
 
 @login_required(login_url='/oauth2/login')
 def changeprivileges(response, id):
-    """ Settings Page """
     ownedguildids = []
     obj = Guilds.objects.filter(userid=response.user.id)
     for item in obj:
