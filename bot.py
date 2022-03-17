@@ -16,11 +16,6 @@ for filename in os.listdir('./cogs'):
   if filename.endswith('.py'):
     client.load_extension(f'cogs.{filename[:-3]}')
 
-# @client.command()
-# async def botsguilds(ctx): 
-#   for guild in client.guilds:              
-#     await ctx.send(guild.name)
-
 def update_connected_bots(guild):
   """ Gets list of guilds connected to bot and updates to model """
   Guildlist = []

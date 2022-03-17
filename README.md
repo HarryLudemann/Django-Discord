@@ -12,8 +12,6 @@ Demo: https://hazzahsbot.herokuapp.com/
   	* Inspire - Return Inspirational Qoute
 3.  **Uncategorised**
   	* New Member Welcome Message
-4.  **Admin**
-  	* Q - Stop Bot
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 

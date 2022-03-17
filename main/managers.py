@@ -14,3 +14,8 @@ class DiscordUserOAuth2Manager(models.UserManager):
             email=user['email']
         )
         return new_user
+
+    def update_discord_user_avatar(self, user, avatar):
+        user.avatar = avatar
+        user.save()
+        return user

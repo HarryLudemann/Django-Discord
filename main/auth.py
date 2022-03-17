@@ -10,7 +10,10 @@ class DiscordAuthenticationBackend(BaseBackend):
             new_user = DiscordUser.objects.create_new_discord_user(user)
             print(new_user)
             return new_user
-        return find_user
+        else:
+            print('User found. updating...')
+            update_user = DiscordUser.objects.update_discord_user_avatar(find_user[0], user['avatar'])
+            return update_user
 
     def get_user(self, user_id):
         try:

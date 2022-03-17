@@ -9,6 +9,19 @@ class Basic(commands.Cog):
 
     def __init__(self, client):
         self.client = client
+
+    # Permission Checks
+    # chat command
+    def check_ping_permission(ctx): #Shows Error / Dont Remove
+        role = discord.utils.get(ctx.guild.roles, name=str(functions.GetConfigValue('basic-ping', str(ctx.guild.id))))
+        if role in ctx.author.roles:
+            return True
+    # chat command
+    def check_changeprefix_permission(ctx): #Shows Error / Dont Remove
+        role = discord.utils.get(ctx.guild.roles, name=str(functions.GetConfigValue('admin-changeprefix', str(ctx.guild.id))))
+        if role in ctx.author.roles:
+            return True
+
   
     @commands.Cog.listener()
     async def on_ready(self):
@@ -35,18 +48,6 @@ class Basic(commands.Cog):
         except:
             print(f'{guild.name} Rejoined')
 
-    # Permission Checks
-    # chat command
-    def check_ping_permission(ctx): #Shows Error / Dont Remove
-        role = discord.utils.get(ctx.guild.roles, name=str(functions.GetConfigValue('basic-ping', str(ctx.guild.id))))
-        if role in ctx.author.roles:
-            return True
-    # chat command
-    def check_changeprefix_permission(ctx): #Shows Error / Dont Remove
-        role = discord.utils.get(ctx.guild.roles, name=str(functions.GetConfigValue('admin-changeprefix', str(ctx.guild.id))))
-        if role in ctx.author.roles:
-            return True
-
     #Commands
     # Help Command
     @commands.command()
@@ -70,16 +71,6 @@ Fun:
     @commands.check(check_ping_permission)
     async def ping(self, ctx):
         await ctx.send('Pong')
-
-    # Change Prefix Command
-    @commands.command(name='changeprefix', help='Change Prefix')
-    @commands.check(check_changeprefix_permission)
-    async def changeprefix(self, ctx, message):
-        try:
-            functions.SetConfigValue('identifier', message, str(ctx.guild.id))
-            await ctx.send(f'Changed Prefix to {message}')
-        except:
-            print('Failed')
 
     # Get Current Server Info
     @commands.command(name='info', help='Server Info', pass_context = True)
