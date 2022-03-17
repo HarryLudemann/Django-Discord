@@ -1,5 +1,6 @@
 from register.models import Themes
 from main.models import Guilds, ConnectedGuilds
+import os
 
 # Checks theme
 def CheckDarkTheme(response):
