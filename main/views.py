@@ -38,9 +38,10 @@ def exchange_code(code):
     obj = Guilds.objects.all()
     if (obj.filter(userid=user['id']).exists()):
         obj.filter(userid=user['id']).delete()
+
     for n in range(len(guildslist)):
         if (str(guildslist[n]['owner']) == 'True'):
-            obj = Guilds(userid=user['id'], guildid=guildslist[n]['id'], icon=guildslist[n]['icon'], name=guildslist[n]['name'])
+            obj = Guilds(userid=user['id'], guildid=guildslist[n]['id'], name=guildslist[n]['name']) # icon=guildslist[n]['icon'],
             obj.save()
             #print(str(guildslist[n]['name']))
     #print(user)

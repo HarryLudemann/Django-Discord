@@ -29,5 +29,5 @@ Demo: https://hazzahsbot.herokuapp.com/
 1. At bottom of deploy tab select Deploy Branch
 1. In top right heroku click more > run console then 'python manage.py migrate'
 1. At bottom of deploy tab select Deploy Branch
-
+  
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
