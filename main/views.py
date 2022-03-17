@@ -56,9 +56,10 @@ def discordlogin(response):
     return redirect(discord_login)
 
 def discordloginredirect(response):
-    user = exchange_code(response.GET.get('code'))
+    code = response.GET.get('code')
+    user = exchange_code(code)
     discord_user = authenticate(response, user=user)
-    discord_user = discord_user.first()
+    discord_user = discord_user
     login(response, discord_user)
     return redirect("/dashboard")
 
