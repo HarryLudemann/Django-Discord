@@ -33,4 +33,4 @@ async def on_guild_remove(guild):
 
 
 # Run Bot
-client.run('OTUzODMxNTA3MTQ1OTIwNTQy.YjKS0A.bePfgkjJfzqklkqu4sj3dFmft-w')
+client.run(token)
