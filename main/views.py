@@ -11,8 +11,8 @@ import requests
 import os
 from django.contrib.auth import authenticate, login
 
-discord_login = 'https://discord.com/api/oauth2/authorize?client_id=833177090350252072&redirect_uri=https%3A%2F%2F' + os.getenv("DOMAIN") + '%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify%20email%20guilds'
-discord_addbot = 'https://discord.com/api/oauth2/authorize?client_id=833177090350252072&permissions=8&scope=bot'
+discord_login = 'https://discord.com/api/oauth2/authorize?client_id='+ os.getenv("CLIENT_ID") +'&redirect_uri=https%3A%2F%2F' + os.getenv("DOMAIN") + '%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify%20email%20guilds'
+discord_addbot = 'https://discord.com/api/oauth2/authorize?client_id='+ os.getenv("CLIENT_ID") +'&permissions=8&scope=bot'
 
 def exchange_code(code):
     """ Exchange the code for a token. """

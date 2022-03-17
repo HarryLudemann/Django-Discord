@@ -30,3 +30,5 @@ Demo: https://hazzahsbot.herokuapp.com/
 	* DOMAIN = Domain to use eg. hazzahsbot.herokuapp.com
 1. In deploy tab select connect to github and select repo
 1. At bottom of deploy tab select Deploy Branch
+1. In top right heroku click more > run console then 'python manage.py migrate'
+1. At bottom of deploy tab select Deploy Branch
