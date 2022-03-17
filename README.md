@@ -25,5 +25,8 @@ Demo: https://hazzahsbot.herokuapp.com/
 	* DISABLE_COLLECTSTATIC = 1
 	* DiscordBotToken = (Discord Bot Token)
 	* SECRET_KEY = (Random Security key for django)
+	* CLIENT_ID = discord bot client id
+	* CLIENT_SECRET = discord bot client secret
+	* DOMAIN = Domain to use eg. hazzahsbot.herokuapp.com
 1. In deploy tab select connect to github and select repo
 1. At bottom of deploy tab select Deploy Branch
