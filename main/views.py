@@ -21,7 +21,7 @@ def exchange_code(code):
         'client_secret' : os.getenv("CLIENT_SECRET"),
         'grant_type' : 'authorization_code',
         'code' : code,
-        'redirect_uri' : 'https://hazzahsbot.herokuapp.com/oauth2/login/redirect',
+        'redirect_uri' : 'https://' + os.getenv("DOMAIN") + '/oauth2/login/redirect',
         'scope': 'identify email guilds'
     }
     headers = {
