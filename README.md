@@ -19,6 +19,8 @@ Demo: https://hazzahsbot.herokuapp.com/
 
 
 ## Setup:
+1. Create [Discord Bot](https://discord.com/developers/docs/intro)
+1. Within OAuth2 add redirect url eg. https://hazzahsbot.herokuapp.com/ 
 1. Fork repo
 1. Create [Heroku App](https://www.heroku.com/)
 1. In settings tab add the following config vars:
