@@ -19,7 +19,7 @@ def CheckDarkTheme(response):
 def GetGuilds(response):
     obj = Guilds.objects.all()
     for item in obj:
-    obj = obj.filter(userid=response.user.id)
+        obj = obj.filter(userid=response.user.id)
     return obj
 
 
