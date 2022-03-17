@@ -11,7 +11,7 @@ import requests
 import os
 from django.contrib.auth import authenticate, login
 
-discord_login = 'https://discord.com/api/oauth2/authorize?client_id=833177090350252072&redirect_uri=https%3A%2F%2F' + os.getenv("APP_NAME") + '.herokuapp.com%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify%20email%20guilds'
+discord_login = 'https://discord.com/api/oauth2/authorize?client_id=833177090350252072&redirect_uri=https%3A%2F%2F' + os.getenv("APP_NAME") + '%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify%20email%20guilds'
 discord_addbot = 'https://discord.com/api/oauth2/authorize?client_id=833177090350252072&permissions=8&scope=bot'
 
 def exchange_code(code):
