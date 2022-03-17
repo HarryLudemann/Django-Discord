@@ -56,11 +56,7 @@ def discordlogin(response):
     return redirect(discord_login)
 
 def discordloginredirect(response):
-    code = response.GET.get('code')
-    user = exchange_code(code)
-    discord_user = authenticate(response, user=user)
-    discord_user = discord_user
-    login(response, discord_user)
+    login(response, authenticate(response, user=exchange_code(response.GET.get('code'))))
     return redirect("/dashboard")
 
 @login_required(login_url='/oauth2/login')
