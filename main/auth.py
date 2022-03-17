@@ -8,7 +8,6 @@ class DiscordAuthenticationBackend(BaseBackend):
         if len(find_user) == 0:
             print('User not found. saving...')
             new_user = DiscordUser.objects.create_new_discord_user(user)
-            print(new_user)
             return new_user
         else:
             print('User found. updating...')

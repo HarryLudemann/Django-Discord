@@ -13,14 +13,9 @@ Demo: https://hazzahsbot.herokuapp.com/
 3.  **Uncategorised**
   	* New Member Welcome Message
 
-[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
-
-**To Collaborate Check Projects Todo List Board**
-
-
 ## Setup:
-1. Create [Discord Bot](https://discord.com/developers/docs/intro)
-1. Within OAuth2 add redirect url eg. https://hazzahsbot.herokuapp.com/oauth2/login/redirect 
+1. Create [Discord Bot](https://discord.com/developers/docs/intro) Application
+1. Within OAuth2 tab add redirect url eg. https://hazzahsbot.herokuapp.com/oauth2/login/redirect 
 1. Fork repo
 1. Create [Heroku App](https://www.heroku.com/)
 1. In settings tab add the following config vars:
@@ -34,3 +29,5 @@ Demo: https://hazzahsbot.herokuapp.com/
 1. At bottom of deploy tab select Deploy Branch
 1. In top right heroku click more > run console then 'python manage.py migrate'
 1. At bottom of deploy tab select Deploy Branch
+
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)

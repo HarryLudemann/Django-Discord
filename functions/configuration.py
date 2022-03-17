@@ -53,5 +53,3 @@ def UpdateConnectedGuilds(GuildsList):
     print(str(obj.count()))
     
 
-if (__name__ == "__main__"):
-    CreateConfigFile('677326100686438430') # GuildID For HAX00R
