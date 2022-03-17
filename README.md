@@ -16,3 +16,14 @@ Demo: https://hazzahsbot.herokuapp.com/
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
 **To Collaborate Check Projects Todo List Board**
+
+
+## Setup:
+1. Fork repo
+1. Create [Heroku App](https://www.heroku.com/)
+1. In settings tab add the following config vars:
+	* DISABLE_COLLECTSTATIC = 1
+	* DiscordBotToken = (Discord Bot Token)
+	* SECRET_KEY = (Random Security key for django)
+1. In deploy tab select connect to github and select repo
+1. At bottom of deploy tab select Deploy Branch
