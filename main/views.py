@@ -42,7 +42,7 @@ def exchange_code(code):
     # remove all guilds with the users id
     obj = Guilds.objects.all()
     for item in obj:
-        obj = obj.filter(userid=response.user.id).delete()
+        obj = obj.filter(userid=user.id).delete()
 
     for n in range(len(guildslist)):
         if (str(guildslist[n]['owner']) == 'True'):
