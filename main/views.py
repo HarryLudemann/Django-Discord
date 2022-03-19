@@ -38,13 +38,14 @@ def exchange_code(code):
     obj = Guilds.objects.all()
     if (obj.filter(userid=user['id']).exists()):
         obj.filter(userid=user['id']).delete()
+    
+    # remove all guilds with the users id
+    Guilds.objects.filter(userid=userid).delete()
 
     for n in range(len(guildslist)):
         if (str(guildslist[n]['owner']) == 'True'):
             obj = Guilds(userid=user['id'], guildid=guildslist[n]['id'], name=guildslist[n]['name']) # icon=guildslist[n]['icon'],
             obj.save()
-            #print(str(guildslist[n]['name']))
-    #print(user)
     return user
 
 def home(response):
@@ -55,6 +56,7 @@ def discordlogin(response):
 
 def discordloginredirect(response):
     login(response, authenticate(response, user=exchange_code(response.GET.get('code'))))
+    # update servers available
     return redirect("/dashboard")
 
 @login_required(login_url='/oauth2/login')
