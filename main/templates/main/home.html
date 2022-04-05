@@ -7,8 +7,12 @@
     <div class="row header">
         <div class="col-sm-6 name">
         <p class="text-{% if theme == "light" %}dark{% else %}light{%endif%}">HAZZAH'S <br/>DISCORD <br/>BOT <br/>
-            <button class="btn btn-primary">Add to Discord</button>
-            <button class="btn btn-primary">See Features</button>
+            <form action="/oauth2/login" class="inline">
+                <button class="btn btn-primary">Add to Discord</button>
+            </form>
+            <form action="/oauth2/login" class="inline">
+                <button class="btn btn-primary">See Features</button>
+            </form>
         </p>
         
         </div class="text-{% if theme == "light" %}dark{% else %}light{%endif%}">
